@@ -68,6 +68,18 @@ function drawNodes(){
         }
 }
 function fix(){
+    let oldwidth = canvas.width;
+    let oldheight = canvas.height;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    for(let x = 0; x < nodes.length; x++)
+    {
+        [nodes[x][0], nodes[x][1]] = [nodes[x][0] * (canvas.width/oldwidth), nodes[x][1] * (canvas.height/oldheight)];
+        [lastEvent[0], lastEvent[1]] = [lastEvent[0] * (canvas.width/oldwidth), lastEvent[1] * (canvas.height/oldheight)];
+    }
+    //makeNodes(GRIDWIDTH, GRIDHEIGHT);
+}
+function reset(){
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     makeNodes(GRIDWIDTH, GRIDHEIGHT);
@@ -85,11 +97,11 @@ function moveNodes(){
     }
     //drawNodes();
     if (typeof lastEvent !== "undefined")
-        drawMouse(lastEvent);
+        drawAll(lastEvent[0], lastEvent[1]);
     else drawAll(nodes[0][0], nodes[0][1]);
 }
 function drawMouse(e){
-    lastEvent = e;
+    lastEvent = [e.offsetX, e.offsetY];
     drawAll(e.offsetX, e.offsetY);
 }
 function drawAll(x,y){
@@ -102,7 +114,7 @@ function drawAll(x,y){
 setInterval(moveNodes, 50);
 canvas.addEventListener('mousemove', drawMouse);
 window.addEventListener('resize', fix);
-heightS.addEventListener('change', () => { GRIDHEIGHT = heightS.value; fix(); lineS.max = heightS.value * widthS.value;});
-widthS.addEventListener('change', () => { GRIDWIDTH = widthS.value; fix(); lineS.max = heightS.value * widthS.value;});
+heightS.addEventListener('change', () => { GRIDHEIGHT = heightS.value; reset(); lineS.max = heightS.value * widthS.value;});
+widthS.addEventListener('change', () => { GRIDWIDTH = widthS.value; reset(); lineS.max = heightS.value * widthS.value;});
 lineS.addEventListener('change', () => { NUMLINES = lineS.value;});
 document.querySelector("footer").addEventListener('click', () => {if(NUMLINES < 3) NUMLINES++});
