@@ -1,0 +1,19 @@
+  html, body {
+    margin:0;
+  }
+  #draw{
+      width: 100%;
+      height: 10%;
+  }
+  footer{
+      bottom: 0;
+      background: #083b44;
+  }
+  h1{
+    height: 10vh;
+  }
+  input{
+    width: 90%;
+  }
+  
+  
