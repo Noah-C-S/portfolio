@@ -1,0 +1,37 @@
+.time{
+    text-align: center;
+    flex-grow: 1;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: auto;
+}
+#t0{
+    background: #0b94dd;
+}
+#t1{
+    background: #148ccc
+}
+#t2{
+    background: #2086bc
+}
+#t3{
+    background: #247dad
+}
+#t4 {
+    background: #26729b
+}
+#t5{
+    background: #2e6b8c
+}
+#t6{
+    background: #295770
+}
+.content{
+    display: none;
+    overflow-x: auto;
+    overflow-y: auto;
+}
