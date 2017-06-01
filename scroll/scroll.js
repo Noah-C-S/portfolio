@@ -13,41 +13,43 @@ $(document).ready(() => {
 if(!jQuery.browser.mobile) $("#container").css("position", "fixed");
 $("#container").mousewheel((turn, delta)=>{
       if(animating) return;
+      animating = true;
       if(currentOne === -1 && !jQuery.browser.mobile) shrinkAll();
       if(delta < 0 && currentOne < 6){
           direction = true;
-          animate(currentOne, 1, 8);
+          animate(currentOne, false);
           currentOne++;
-          animate(currentOne, 50, 16);
+          animate(currentOne, true);
       }
       else if(delta > 0 && currentOne > 0){
           direction = false;
-          animate(currentOne, 1,8);
+          animate(currentOne, false);
           currentOne--;
-          animate(currentOne, 50,16);
+          animate(currentOne, true);
       }
       else if(delta >0 && currentOne === -1){
          currentOne = 0;
-         animate(currentOne, 50,16);
+         animate(currentOne, true);
       }
 
    });
    const container = document.getElementById("container");
-   container.addEventListener("click", () => {;
+   container.addEventListener("click", () => {
          if(animating) return;
-         if(currentOne === -1 && jQuery.browser.mobile) shrinkAll();
+         animating = true;
+         if(currentOne === -1 &&!jQuery.browser.mobile) shrinkAll();
          if(currentOne === 6 || currentOne === 0 )
              direction = !direction;
          if(direction || currentOne <= 0){
-          animate(currentOne, 1,8);
+          animate(currentOne, false);
           currentOne++;
-          animate(currentOne, 50,16);
+          animate(currentOne, true);
           direction = true;
          }
          else {
-          animate(currentOne, 1,8);
+          animate(currentOne, false);
           currentOne--;
-          animate(currentOne, 50,16);
+          animate(currentOne, true);
          }
    });
       // $("#container").click((e)=> {
@@ -68,17 +70,40 @@ $("#container").mousewheel((turn, delta)=>{
       //    }
          
       // });
-      function animate(which, size, textSize){
-         if(!jQuery.browser.mobile)
-         $(`#t${which}`).velocity({ 
-             p: {"flex-grow": size, "font-size": textSize}, 
-             o: {duration: 500, queue: false, begin: () => {animating = true}, complete: () => {animating = false; $(`#c${which}`).slideToggle({queue: false, duration: 250});}}});
-         else 
+      function animate(which, opening){
+         if(!jQuery.browser.mobile){
+            if(opening){
             $(`#t${which}`).velocity({ 
-             p: {"flex-grow": size}, 
-             o: {duration: 500, queue: false, begin: () => {animating = true}, complete: () => {animating = false, $(`#c${which}`).toggle({queue: false});}}});
+                p: {"flex-grow": 50, "font-size": 16}, 
+                o: {duration: 500,
+                    queue: false, 
+                    complete: () => {console.log("hello"), $(`#c${which}`).velocity("slideDown", {queue: false, duration: 100, complete : () => {animating = false}})}}}); // so many nested stuffs existing here :I
+                console.log("in");
+            }
+            else{
+            $(`#t${which}`).velocity({ 
+                p: {"flex-grow": 1, "font-size": 8}, 
+                o: {duration: 400, queue: false, complete: () => {$(`#c${which}`).velocity("slideUp", {queue: false, duration: 100, complete: () => {animating = false}})}}});
+            }
+         }
+         else {
+            // $(`#t${which}`).velocity({ 
+            //  p: {"flex-grow": size}, 
+            //  o: {duration: 500, queue: false, begin: () => {animating = true}, complete: () => {animating = false, $(`#c${which}`).toggle();}}});
+            if(opening){
+               $(`#t${which}`).velocity({ 
+               p: {"flex-grow": 50}, 
+               o: {duration: 500, queue: false, complete: () => {$(`#c${which}`).velocity("slideDown", {queue: false, duration: 100, complete : () => {animating = false}})}}});
+            }
+            else{
+               $(`#t${which}`).velocity({ 
+               p: {"flex-grow": 50}, 
+               o: {duration: 400, queue: false, complete: () => {$(`#c${which}`).velocity("slideUp", {queue: false, duration: 100, complete : () => {animating = false}})}}});
+            }
+         }
       }
       function shrinkAll(){
+         if(jQuery.browser.mobile) return;
          for(let i = 1; i <=6; i++){
             $(`#t${i}`).velocity({"font-size" : 8}, {duration: 500, queue: false});
          }
