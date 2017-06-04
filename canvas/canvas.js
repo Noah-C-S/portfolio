@@ -20,10 +20,10 @@ function draw(x,y) {
     ctx.lineWidth = 2;
     const nearestNodes = getNearestNodes(x,y);
     for(let a = 0; a < nearestNodes.length; a++){
-        ctx.strokeStyle = `rgba(9, 155, 181, ${125/nearestNodes[a][0][2]})`;
+        ctx.strokeStyle = `rgba(9, 155, 181, ${125/nearestNodes[a][2]})`;
         ctx.beginPath();
         ctx.moveTo(x, y);
-        ctx.lineTo(nearestNodes[a][0][0], nearestNodes[a][0][1]);
+        ctx.lineTo(nearestNodes[a][0], nearestNodes[a][1]);
         ctx.stroke();
     }
 }
@@ -37,7 +37,7 @@ function getNearestNodes(x,y){ //get the "nodes" nearest to your mouse.
             if(nodesWDistance[c][2] < nodesWDistance[lowestIndex][2])
                 lowestIndex = c;
         }
-        nearestNodes.push(nodesWDistance.splice(lowestIndex,1));
+        nearestNodes.push(nodesWDistance.splice(lowestIndex,1)[0]);
     }
     return nearestNodes;
 }
