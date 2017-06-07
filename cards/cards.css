@@ -6,22 +6,52 @@
 }
 .card{
     max-width: 45vw;
-    flex-basis: 33vw;
-    overflow-x: auto;
+    flex-basis: 40vw;
+    min-width: 35vw;
+    overflow-x: hidden;
     overflow-y: auto;
     background: #0b949d;
     border-radius: 20px;
     height: 100%;
     border: 3px solid #0b947d;
     margin-bottom: 50px;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
-.card img {
+.cardImg {
     width: 100%;
     margin: 0 0 0;
+    transition: width 2s, height 2s, background-color 2s, filter 1s, transform 2s;
     
 }
+.cardImg:hover{
+ width: 105%;
+}
+/*.growing{*/
+/*    width: 110%;*/
+/*}*/
+/*.shrinking{*/
+/*    width: 100%;*/
+/*}*/
+/*@keyframes grow{*/
+/*    from{*/
+/*        width: 100%;*/
+/*    }*/
+/*    to{*/
+/*        width: 110%;*/
+/*    }*/
+/*}*/
+
+/*@keyframes shrink{*/
+/*    from{*/
+/*        width: 110%;*/
+/*    }*/
+/*    to{ width: 100%;*/
+/*    }*/
+/*}*/
+
 .card h1{
-    background: #0b94bd;
+    background: rgb(15,121,130);
+    background: rgba(29,39,49, .25);
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 12px;
