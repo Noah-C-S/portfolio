@@ -15,12 +15,11 @@
     height: 100%;
     border: 3px solid #0b947d;
     margin-bottom: 50px;
-    transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
 .cardImg {
     width: 100%;
     margin: 0 0 0;
-    transition: width 2s, height 2s, background-color 2s, filter 1s, transform 2s;
+    transition: width 2s;
     
 }
 .cardImg:hover{
