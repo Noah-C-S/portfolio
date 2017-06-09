@@ -1,26 +1,13 @@
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+  _   _             _      _____  _____ 
+ | \ | |           | |    / ____|/ ____|
+ |  \| | ___   __ _| |__ | |    | (___  
+ | . ` |/ _ \ / _` | '_ \| |     \___ \ 
+ | |\  | (_) | (_| | | | | |____ ____) |
+ |_| \_|\___/ \__,_|_| |_|\_____|_____/ 
+                                        
+The portfolio website of a high school Senior currently attending the Urban assembly gateway school for technology and applying to college!
 
 
-Hi there! Welcome to Cloud9 IDE!
+##NoahCS
+Godly high school senior who made this website. 
 
-To get you started, we included a small hello world application.
-
-1) Open the hello-world.html file
-
-2) Click on the Preview button to open a live preview pane
-
-3) Make some changes to the file, save, watch the preview, and have fun!
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for documentation, or http://support.c9.io for support.
-To watch some training videos, visit http://www.youtube.com/user/c9ide

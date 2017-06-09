@@ -25,6 +25,8 @@
     width: 100vw;
     overflow-y: auto;
     cursor: pointer;
+    left: 0;
+    top: 0;
 }
 #t0{
     background: #0b94dd;

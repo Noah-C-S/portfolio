@@ -39,19 +39,19 @@ $("#container").mousewheel((turn, delta)=>{
          if ($(".velocity-animating").length || animating) return;
          animating = true;
          if(currentOne === -1) shrinkAll();
-         if(currentOne === 6 || currentOne === 0 )
-             direction = !direction;
+         if(currentOne === 6) direction = false;
+         else if (currentOne === 0) direction = true;
          if(direction || currentOne <= 0){
           animate(currentOne, false);
-          if(jQuery.browser.mobile) currentOne++;
-          else currentOne = e.path[e.path.length-8].id.replace("t", "");
+          if(jQuery.browser.mobile || currentOne === parseInt(e.path[e.path.length-8].id.replace("t", ""))) currentOne++;
+          else currentOne = parseInt(e.path[e.path.length-8].id.replace("t", ""));
           animate(currentOne, true);
           direction = true;
          }
          else {
           animate(currentOne, false);
-          if(jQuery.browser.mobile) currentOne--;
-          else currentOne = e.path[e.path.length-8].id.replace("t", "");
+          if(jQuery.browser.mobile || currentOne === parseInt(e.path[e.path.length-8].id.replace("t", ""))) currentOne--;
+          else currentOne = parseInt(e.path[e.path.length-8].id.replace("t", ""));
           animate(currentOne, true);
          }
    });
