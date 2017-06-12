@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+    <link href="../hamburgers/dist/hamburgers.css" rel="stylesheet">
     <link rel = "stylesheet" type = "text/css" href = "../styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Audiowide|Carme|Source+Sans+Pro" rel="stylesheet">>
-    <link rel="icon" type="image/ico" sizes="16x16" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Carme|Source+Sans+Pro" rel="stylesheet">
+    <link rel="icon" type="image/ico" sizes="16x16" href="../favicon.ico">
     <title>Noah's portfolio website</title>
 </head>
 <body>
@@ -18,10 +19,17 @@
         <a href = "/projects"><div class = "nItem">Projects</div></a>
         <a href = "/faq"><div class = "nItem">FAQ</div></a>
         <a href = "/contact"><div class = "nItem">Contact</div></a>
-        <div id = "navExpand">☰</div>
+        <!--Huge thanks to Jonathan Suh https://jonsuh.com/hamburgers/ For this amazing hamburger!-->
+        <div id = "navExpand">
+            <button id = "hamburger" class="hamburger hamburger--squeeze" style = "color: white;" type="button">
+            <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+            </span>
+            </button>
+        </div>
     </div>
      </header>
-            <div id = "mobileNav">
+            <div id = "mobileNav" class = "hidden">
             <a href = "/"><div class = "mItem">Home</div></a>
             <a href = "/about"><div class = "mItem">About</div></a>
             <a href = "/projects"><div class = "mItem">Projects</div></a>
@@ -74,7 +82,7 @@
         </div>
         <div id = "footer">
             <p id = "footerContent">Made with love by Noah Preston Capucilli-Shatan!</p>
-            <canvas id = "draw" >The browser you are using doesn't seem to support canvas! I'd recomend the latest vesrion of Chrome, but the latest versions of most modern browsers support it.</canvas>
+            <canvas id = "draw">The browser you are using doesn't seem to support canvas! I'd recomend the latest vesrion of Chrome, but the latest versions of most modern browsers support it.</canvas>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

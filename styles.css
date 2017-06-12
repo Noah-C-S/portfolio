@@ -29,8 +29,6 @@
     background: rgba(29,39,49, .25);
 }
 #mobileNav{
-    /*display: flex;*/
-    display: none;
     flex-direction: column;
     z-index: 8;
     opacity: .97;
@@ -41,6 +39,12 @@
     align-items: flex-end;
     left: 45vw;
     top: 48px;
+}
+.hidden{
+    display: none;
+}
+.shown{
+    display: flex;
 }
 .mItem{
     text-align: center;
@@ -61,6 +65,12 @@
     font-size: 40px;
     cursor: pointer;
     color: #f9f7f7;
+    padding-top: 0;
+    
+}
+#hamburger{
+    padding-top: 0;
+    padding-bottom: 0;
 }
 /*846*/
 header{
@@ -91,13 +101,6 @@ a{
     .nItem{
         display: none;
     }
-    /*#navigation{*/
-    /*    height: 100px;*/
-    /*}*/
-    /*#noahcs{*/
-    /*    font-size: 100px;*/
-    /*    padding-right: 100px;*/
-    /*}*/
 }
 #page{
  position: relative;

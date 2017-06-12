@@ -119,8 +119,16 @@ window.addEventListener('resize', fix);
 // lineS.addEventListener('change', () => { NUMLINES = lineS.value;});
 const footer = document.getElementById("footer");
 footer.addEventListener('click', () => {if(NUMLINES < 8) NUMLINES++; if(!hidden) {$("#footerContent").hide(); $("#draw").show(); fix(); hidden = true;}});
-
-$("#navExpand").click(() =>{
-   $("#mobileNav").toggle(); 
-   console.log("hi");
+const navExpand = document.getElementById("navExpand");
+const mobileNav = document.getElementById("mobileNav");
+const hamburger = document.getElementById("hamburger");
+let navShown = false;
+navExpand.addEventListener("click", () =>{
+    if(navShown) {mobileNav.classList.add("hidden"); mobileNav.classList.remove("shown"); hamburger.classList.remove("is-active"); navShown = false;}
+    else{mobileNav.classList.remove("hidden"); mobileNav.classList.add("shown"); hamburger.classList.add("is-active"); navShown = true;} 
+});
+const page = document.getElementById("page");
+page.addEventListener("click", () =>{
+   mobileNav.classList.add("hidden");
+   hamburger.classList.remove("is-active"); 
 });
