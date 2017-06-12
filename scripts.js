@@ -130,5 +130,7 @@ navExpand.addEventListener("click", () =>{
 const page = document.getElementById("page");
 page.addEventListener("click", () =>{
    mobileNav.classList.add("hidden");
+   mobileNav.classList.remove("shown");
    hamburger.classList.remove("is-active"); 
+   navShown = false;
 });

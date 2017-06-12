@@ -2,7 +2,8 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
-    background: #25a9ce;
+    background: #131516;
+    /*25a9ce;*/
     position: fixed;
     height: 48px;
     vertical-align: middle;
@@ -16,7 +17,8 @@
 .nItem{
     text-align: center;
     width: 120px;
-    border-left: 4px solid #d3f5ff;
+    border-left: 4px solid #f9f7f7;
+    /*d3f5ff;*/
     /*border-left: 5px solid #0bddcb;*/
     height: 48px;
     line-height: 48px;
@@ -25,8 +27,8 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 .nItem:Hover{
-    background: rgb(15,121,130);
-    background: rgba(29,39,49, .25);
+    background: rgb(255,255,255);
+    background: rgba(235,245,255, .125);
 }
 #mobileNav{
     flex-direction: column;
@@ -34,7 +36,7 @@
     opacity: .97;
     color: #f9f7f7;
     font-size: 19px;
-    background: #25a9ce;
+    background: #131516;
     position: fixed;
     align-items: flex-end;
     left: 45vw;
@@ -72,6 +74,12 @@
     padding-top: 0;
     padding-bottom: 0;
 }
+.hamburger .hamburger-inner,.hamburger .hamburger-inner:after,.hamburger .hamburger-inner:before {
+    background-color: #f9f7f7
+}
+.hamburger:hover{
+    opacity: 1;
+}
 /*846*/
 header{
     margin: 0 0 0;
@@ -108,7 +116,7 @@ a{
  top: 48px;
  width: 75vw;
  left: 12.5vw;
- background: #e3e5e6;
+ /*background: #e3e5e6;*/
  background: rgba(34,44,54, .125);
  padding-top: 30px;
 }
@@ -123,6 +131,7 @@ a{
     margin-bottom: 5px;
     border-bottom: 3px solid #FFF;
     text-align: left;
+    font-family: 'Abril Fatface';
 }
 #footer{
        border-top: 5px solid #FFF;
