@@ -4,6 +4,7 @@
   #draw{
       width: 100%;
       height: 10%;
+      cursor: none;
   }
   footer{
       bottom: 0;
