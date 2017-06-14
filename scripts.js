@@ -20,7 +20,7 @@ function draw(x,y) {
     ctx.lineWidth = 2;
     const nearestNodes = getNearestNodes(x,y);
     for(let a = 0; a < nearestNodes.length; a++){
-        ctx.strokeStyle = `rgba(15, 15, 15, ${50/nearestNodes[a][2]})`;
+        ctx.strokeStyle = `rgba(240, 240, 240, ${50/nearestNodes[a][2]})`;
         ctx.beginPath();
         ctx.moveTo(x, y);
         ctx.lineTo(nearestNodes[a][0], nearestNodes[a][1]);
@@ -117,20 +117,28 @@ window.addEventListener('resize', fix);
 // heightS.addEventListener('change', () => { GRIDHEIGHT = heightS.value; reset(); lineS.max = heightS.value * widthS.value;});
 // widthS.addEventListener('change', () => { GRIDWIDTH = widthS.value; reset(); lineS.max = heightS.value * widthS.value;});
 // lineS.addEventListener('change', () => { NUMLINES = lineS.value;});
-const footer = document.getElementById("footer");
-footer.addEventListener('click', () => {if(NUMLINES < 8) NUMLINES++; if(!hidden) {$("#footerContent").hide(); $("#draw").show(); fix(); hidden = true;}});
-const navExpand = document.getElementById("navExpand");
-const mobileNav = document.getElementById("mobileNav");
-const hamburger = document.getElementById("hamburger");
+const footerEl = document.getElementById("footer");
+footerEl.addEventListener('click', () => {if(NUMLINES < 8) NUMLINES++; if(!hidden) {$("#footerContent").hide(); $("#draw").show(); fix(); hidden = true;}});
+const navExpandEl = document.getElementById("navExpand"); //El is added to the end of these to fix a bizzarre bug in Safari where you can't have a const variable with name of the ID that the element it contains has. 
+const mobileNavEl = document.getElementById("mobileNav");
+const hamburgerEl = document.getElementById("hamburger");
 let navShown = false;
-navExpand.addEventListener("click", () =>{
-    if(navShown) {mobileNav.classList.add("hidden"); mobileNav.classList.remove("shown"); hamburger.classList.remove("is-active"); navShown = false;}
-    else{mobileNav.classList.remove("hidden"); mobileNav.classList.add("shown"); hamburger.classList.add("is-active"); navShown = true;} 
+navExpandEl.addEventListener("click", () =>{
+    if(navShown) {mobileNavEl.classList.add("hidden"); mobileNavEl.classList.remove("shown"); hamburgerEl.classList.remove("is-active"); navShown = false;}
+    else{mobileNavEl.classList.remove("hidden"); mobileNavEl.classList.add("shown"); hamburgerEl.classList.add("is-active"); navShown = true;} 
 });
-const page = document.getElementById("page");
-page.addEventListener("click", () =>{
-   mobileNav.classList.add("hidden");
-   mobileNav.classList.remove("shown");
-   hamburger.classList.remove("is-active"); 
+const pageEl = document.getElementById("page");
+pageEl.addEventListener("click", () =>{
+   if(!navShown) return;
+   mobileNavEl.classList.add("hidden");
+   mobileNavEl.classList.remove("shown");
+   hamburgerEl.classList.remove("is-active"); 
+   navShown = false;
+});
+pageEl.addEventListener("touchstart", () =>{
+   if(!navShown) return;
+   mobileNavEl.classList.add("hidden");
+   mobileNavEl.classList.remove("shown");
+   hamburgerEl.classList.remove("is-active"); 
    navShown = false;
 });

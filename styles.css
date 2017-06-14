@@ -17,7 +17,7 @@
 .nItem{
     text-align: center;
     width: 120px;
-    border-left: 4px solid #f9f7f7;
+    border-left: 4px solid #f7f7f7;
     /*d3f5ff;*/
     /*border-left: 5px solid #0bddcb;*/
     height: 48px;
@@ -34,7 +34,7 @@
     flex-direction: column;
     z-index: 8;
     opacity: .97;
-    color: #f9f7f7;
+    color: #f7f7f7;
     font-size: 19px;
     background: #131516;
     position: fixed;
@@ -51,7 +51,7 @@
 .mItem{
     text-align: center;
     width: 120px;
-    border-bottom: 4px solid #d3f5ff;
+    border-bottom: 4px solid #f7f7f7;
     /*border-left: 5px solid #0bddcb;*/
     line-height: 48px;
     cursor: pointer;
@@ -75,7 +75,8 @@
     padding-bottom: 0;
 }
 .hamburger .hamburger-inner,.hamburger .hamburger-inner:after,.hamburger .hamburger-inner:before {
-    background-color: #f9f7f7
+    background-color: #f7f7f7;
+    cursor: pointer;
 }
 .hamburger:hover{
     opacity: 1;
@@ -102,14 +103,6 @@ a{
     align-self: flex-start;
     padding-right: 25px;
 }
-@media screen and (max-width: 1000px){ 
-    #navExpand{
-        display: block;
-    }
-    .nItem{
-        display: none;
-    }
-}
 #page{
  position: relative;
  margin: 0 0 0;
@@ -127,7 +120,7 @@ a{
     color: #252525;
 }
 #pageContent h1{
-    text-decoration: underline;
+    /*text-decoration: underline;*/
     margin-bottom: 5px;
     border-bottom: 3px solid #FFF;
     text-align: left;
@@ -135,16 +128,25 @@ a{
 }
 #footer{
        border-top: 5px solid #FFF;
+       cursor: pointer;
+       background: #131516;
+       margin-top: 43px;
+       margin-bottom: 0;
 }                       
 #footerContent{
-    padding-top: 12.5vh;
-    height: 12.5vh;
+    padding-top: 6.75vh;
+    height: 6.75vh;
     width: 100%;
     position: relative;
     text-align: center;
     /*background: #8987c4;*/
     cursor: pointer;
     z-index: 0;
+    margin: 0 0 0;
+    color: #6f6f6f;
+    font-size: 1.15em;
+    font-family: 'Lobster', cursive;
+    /*font-family: 'Source Sans Pro';*/
 }
   #draw{
       width: 100%;
@@ -152,3 +154,19 @@ a{
       display: none;
       cursor: none;
   }
+  @media screen and (max-width: 1000px){ 
+    #navExpand{
+        display: block;
+    }
+    .nItem{
+        display: none;
+    }
+    /*#page{*/
+    /*    width: 85vw;*/
+    /*    margin-left: 7.5vw;*/
+    /*}*/
+    /*#pageContent{*/
+    /*    width: 75vw;*/
+    /*    margin-left: 10vw;*/
+    /*}*/
+}
