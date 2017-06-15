@@ -1,4 +1,4 @@
-const canvas = document.querySelector('#draw');
+const canvas = document.getElementById('draw');
 const ctx = canvas.getContext('2d');
 let hidden = false;
 // const lineS = document.getElementById("numlines");
@@ -101,8 +101,17 @@ function moveNodes(){
     else drawAll(nodes[0][0], nodes[0][1]);
 }
 function drawMouse(e){
+    // console.log(e);
+    // console.log([e.offsetX, e.offsetY]);
     lastEvent = [e.offsetX, e.offsetY];
     drawAll(e.offsetX, e.offsetY);
+}
+function drawTouch(e){
+    const rect = e.target.getBoundingClientRect();
+    // console.log(e);
+    // console.log( [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top]);
+    lastEvent = [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top];
+    drawAll(e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top);
 }
 function drawAll(x,y){
     drawNodes();
@@ -113,16 +122,18 @@ function drawAll(x,y){
 }
 setInterval(moveNodes, 50);
 canvas.addEventListener('mousemove', drawMouse);
+canvas.addEventListener('touchmove', drawTouch);
 window.addEventListener('resize', fix);
 // heightS.addEventListener('change', () => { GRIDHEIGHT = heightS.value; reset(); lineS.max = heightS.value * widthS.value;});
 // widthS.addEventListener('change', () => { GRIDWIDTH = widthS.value; reset(); lineS.max = heightS.value * widthS.value;});
 // lineS.addEventListener('change', () => { NUMLINES = lineS.value;});
 const footerEl = document.getElementById("footer");
-footerEl.addEventListener('click', () => {if(NUMLINES < 8) NUMLINES++; if(!hidden) {$("#footerContent").hide(); $("#draw").show(); fix(); hidden = true;}});
+footerEl.addEventListener('click', () => {if(NUMLINES < 8) NUMLINES++; if(!hidden) {$("#footerContent").hide(); $("#draw").show(); fix(); hidden = true;} if(NUMLINES> 0) $("#draw").css("cursor", "none");});
 const navExpandEl = document.getElementById("navExpand"); //El is added to the end of these to fix a bizzarre bug in Safari where you can't have a const variable with name of the ID that the element it contains has. 
 const mobileNavEl = document.getElementById("mobileNav");
 const hamburgerEl = document.getElementById("hamburger");
 let navShown = false;
+//I don't use jQuery here because it wasn't working in some browsers leading me to use pure Javascript hoping for more compatibility. 
 navExpandEl.addEventListener("click", () =>{
     if(navShown) {mobileNavEl.classList.add("hidden"); mobileNavEl.classList.remove("shown"); hamburgerEl.classList.remove("is-active"); navShown = false;}
     else{mobileNavEl.classList.remove("hidden"); mobileNavEl.classList.add("shown"); hamburgerEl.classList.add("is-active"); navShown = true;} 
