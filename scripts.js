@@ -108,8 +108,8 @@ function drawMouse(e){
 }
 function drawTouch(e){
     const rect = e.target.getBoundingClientRect();
-    // console.log(e);
-    // console.log( [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top]);
+    //console.log(e);
+    //console.log( [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top]);
     lastEvent = [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top];
     drawAll(e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top);
 }
@@ -123,6 +123,8 @@ function drawAll(x,y){
 setInterval(moveNodes, 50);
 canvas.addEventListener('mousemove', drawMouse);
 canvas.addEventListener('touchmove', drawTouch);
+// canvas.addEventListener('touchstart', ()=> {$('body').addClass('noscroll');});
+// canvas.addEventListener('touchend', () => {$('body').removeClass('noscroll');});
 window.addEventListener('resize', fix);
 // heightS.addEventListener('change', () => { GRIDHEIGHT = heightS.value; reset(); lineS.max = heightS.value * widthS.value;});
 // widthS.addEventListener('change', () => { GRIDWIDTH = widthS.value; reset(); lineS.max = heightS.value * widthS.value;});
@@ -133,7 +135,7 @@ const navExpandEl = document.getElementById("navExpand"); //El is added to the e
 const mobileNavEl = document.getElementById("mobileNav");
 const hamburgerEl = document.getElementById("hamburger");
 let navShown = false;
-//I don't use jQuery here because it wasn't working in some browsers leading me to use pure Javascript hoping for more compatibility. 
+//I don't use jQuery here because it wasn't working in some browsers leading me to use pure Javascript hoping for more compatibility. Sadly, it didn't help, but this works just as well, if not better, than jQuery. it just took a little longer to write.
 navExpandEl.addEventListener("click", () =>{
     if(navShown) {mobileNavEl.classList.add("hidden"); mobileNavEl.classList.remove("shown"); hamburgerEl.classList.remove("is-active"); navShown = false;}
     else{mobileNavEl.classList.remove("hidden"); mobileNavEl.classList.add("shown"); hamburgerEl.classList.add("is-active"); navShown = true;} 

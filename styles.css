@@ -2,7 +2,8 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
-    background: #131516;
+    /*background: #212121;*/
+    background: #212121;
     /*25a9ce;*/
     position: fixed;
     height: 48px;
@@ -36,31 +37,33 @@
     opacity: .97;
     color: #f7f7f7;
     font-size: 19px;
-    background: #131516;
+    background: #212121;
     position: fixed;
     align-items: flex-end;
     left: 45vw;
     top: 48px;
+}
+
+.mItem{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 4px solid #f7f7f7;
+    /*border-left: 5px solid #0bddcb;*/
+    line-height: 48px;
+    cursor: pointer;
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 55vw;
+    /*height: 10vh;*/
+    height: 5vh;
+    padding-bottom: 2.5vh;
+    padding-top: 2.5vh;
 }
 .hidden{
     display: none;
 }
 .shown{
     display: flex;
-}
-.mItem{
-    text-align: center;
-    width: 120px;
-    border-bottom: 4px solid #f7f7f7;
-    /*border-left: 5px solid #0bddcb;*/
-    line-height: 48px;
-    cursor: pointer;
-    transition: background 250ms;
-    font-family: 'Source Sans Pro', sans-serif;
-    width: 55vw;
-    height: 5vh;
-    padding-bottom: 2.5vh;
-    padding-top: 2.5vh;
 }
 #navExpand{
     display: none;
@@ -83,7 +86,11 @@
 .hamburger:hover{
     opacity: 1;
 }
-/*846*/
+.hamburger-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 header{
     margin: 0 0 0;
     padding: 0 0 0;
@@ -111,19 +118,21 @@ a{
  width: 75vw;
  left: 12.5vw;
  /*background: #e3e5e6;*/
- background: rgba(34,44,54, .125);
+ /*background: rgba(34,44,54, .125);*/
  padding-top: 30px;
+ min-height: 95vh;
 }
 #pageContent{
-    width: 60vw;
-    margin-left: 7.5vw;
+    min-height: 100%;
+    width: 65vw;
+    margin-left: 5vw;
     font-family:'Carme', sans-serif;
     color: #252525;
 }
 #pageContent h1{
     /*text-decoration: underline;*/
     margin-bottom: 5px;
-    border-bottom: 3px solid #FFF;
+    border-bottom: 3px solid #000;
     text-align: left;
     font-family: 'Abril Fatface';
 }
@@ -133,7 +142,7 @@ a{
        background: #131516;
        margin-top: 43px;
        margin-bottom: 0;
-}                       
+}            
 #footerContent{
     padding-top: 6.75vh;
     height: 6.75vh;
@@ -155,6 +164,10 @@ a{
       display: none;
       cursor: pointer;
   }
+ .noscroll{
+     height: 100%;
+     overflow: hidden;
+ }
   /*Styles for Mobile or just really thin viewers. Also picks up 480p and other really "small" screens in terms of pixels. */
   @media screen and (max-width: 1000px){ 
     #navExpand{

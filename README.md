@@ -9,5 +9,5 @@ The portfolio website of a high school Senior currently attending the Urban asse
 
 
 ##NoahCS
-Godly high school senior who made this website. 
+Godlike high school senior who made this website. 
 

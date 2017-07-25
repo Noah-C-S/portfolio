@@ -111,8 +111,16 @@ function drawAll(x,y){
         draw(nodes[i][0], nodes[i][1]);
     }
 }
+function drawTouch(e){
+    const rect = e.target.getBoundingClientRect();
+    //console.log(e);
+    //console.log( [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top]);
+    lastEvent = [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top];
+    drawAll(e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top);
+}
 setInterval(moveNodes, 50);
 canvas.addEventListener('mousemove', drawMouse);
+canvas.addEventListener('touchmove', drawTouch);
 window.addEventListener('resize', fix);
 heightS.addEventListener('change', () => { GRIDHEIGHT = heightS.value; reset(); lineS.max = heightS.value * widthS.value;});
 widthS.addEventListener('change', () => { GRIDWIDTH = widthS.value; reset(); lineS.max = heightS.value * widthS.value;});
