@@ -1,0 +1,8 @@
+#pagecontent h1{
+    text-align: center;
+}
+#cover{
+    height: 50vh;
+    width: 100%;
+    background-image: url("/images/chess.png");
+}
