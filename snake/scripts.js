@@ -153,10 +153,20 @@ function endgame(){
     placeFood();
     printGame();
 }
-speedS.addEventListener('change', () => { speed = speedS.value; update()});
-sizeS.addEventListener('change', () => { size = sizeS.value; update()});
-resS.addEventListener('change', () => { res = resS.value; update()});
-foodAmtS.addEventListener('change', () => { foodAmt = parseInt(foodAmtS.value); update()});
+const speedDisplay = document.getElementById('speedDisp');
+const sizeDisplay = document.getElementById('sizeDisp');
+const resDisplay = document.getElementById('resDisp');
+const foodDisplay = document.getElementById('foodDisp');
+speedS.addEventListener('change', () => { speed = speedS.value; speedDisplay.innerHTML = speedS.value; update()});
+sizeS.addEventListener('change', () => { size = sizeS.value; sizeDisplay.innerHTML = sizeS.value; update()});
+resS.addEventListener('change', () => { res = resS.value; resDisplay.innerHTML = resS.value; update()});
+foodAmtS.addEventListener('change', () => { foodAmt = parseInt(foodAmtS.value); foodDisplay.innerHTML = foodAmtS.value; update()});
+
+speedS.addEventListener('mousemove', () => {speedDisplay.innerHTML = speedS.value;});
+sizeS.addEventListener('mousemove', () => {sizeDisplay.innerHTML = sizeS.value;});
+resS.addEventListener('mousemove', () => {resDisplay.innerHTML = resS.value;});
+foodAmtS.addEventListener('mousemove', () => {foodDisplay.innerHTML = foodAmtS.value;});
+
 settingsS.addEventListener('click', ()=> {if (settingsHide) {slidersD.style.display ='block'; settingsHide = false;}
     else {slidersD.style.display = 'none'; settingsHide = true;}
 });
