@@ -46,6 +46,7 @@ $("#container").mousewheel((turn, delta)=>{
          catch(e){
          clicked = NaN;
          }
+         finally{
          if(direction || currentOne <= 0){
           animate(currentOne, false);
           if( /*/jQuery.browser.mobile ||/*/ isNaN(clicked) || currentOne === clicked) currentOne++;
@@ -58,6 +59,7 @@ $("#container").mousewheel((turn, delta)=>{
           if(/*/jQuery.browser.mobile ||/*/ isNaN(clicked) || currentOne === clicked) currentOne--;
           else currentOne = clicked;
           animate(currentOne, true);
+         }
          }
    });
    function preventDefault(e){

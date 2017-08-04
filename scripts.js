@@ -131,14 +131,15 @@ window.addEventListener('resize', fix);
 // lineS.addEventListener('change', () => { NUMLINES = lineS.value;});
 const footerEl = document.getElementById("footer");
 footerEl.addEventListener('click', () => {if(NUMLINES < 8) NUMLINES++; if(!hidden) {$("#footerContent").hide(); $("#draw").show(); fix(); hidden = true;} if(NUMLINES> 0) $("#draw").css("cursor", "none");});
-const navExpandEl = document.getElementById("navExpand"); //El is added to the end of these to fix a bizzarre bug in Safari where you can't have a const variable with name of the ID that the element it contains has. 
+const navExpandEl = document.getElementById("navExpand"); //El is added to the end of these names to fix a bizzarre bug in Safari where you can't have a const variable with name of the ID that the element it contains has. 
 const mobileNavEl = document.getElementById("mobileNav");
 const hamburgerEl = document.getElementById("hamburger");
 let navShown = false;
 //I don't use jQuery here because it wasn't working in some browsers leading me to use pure Javascript hoping for more compatibility. Sadly, it didn't help, but this works just as well, if not better, than jQuery. it just took a little longer to write.
 navExpandEl.addEventListener("click", () =>{
-    if(navShown) {mobileNavEl.classList.add("hidden"); mobileNavEl.classList.remove("shown"); hamburgerEl.classList.remove("is-active"); navShown = false;}
-    else{mobileNavEl.classList.remove("hidden"); mobileNavEl.classList.add("shown"); hamburgerEl.classList.add("is-active"); navShown = true;} 
+    navShown = !navShown; mobileNavEl.classList.toggle('hidden'); mobileNavEl.classList.toggle('shown'); hamburgerEl.classList.toggle('is-active');
+    // if(navShown) {mobileNavEl.classList.add("hidden"); mobileNavEl.classList.remove("shown"); hamburgerEl.classList.remove("is-active"); navShown = false;}
+    // else{mobileNavEl.classList.remove("hidden"); mobileNavEl.classList.add("shown"); hamburgerEl.classList.add("is-active"); navShown = true;} 
 });
 const pageEl = document.getElementById("page");
 pageEl.addEventListener("click", () =>{

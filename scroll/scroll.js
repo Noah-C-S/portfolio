@@ -43,15 +43,15 @@ $("#container").mousewheel((turn, delta)=>{
          else if (currentOne === 0) direction = true;
          if(direction || currentOne <= 0){
           animate(currentOne, false);
-          if(jQuery.browser.mobile || currentOne === parseInt(e.path[e.path.length-8].id.replace("t", ""))) currentOne++;
-          else currentOne = parseInt(e.path[e.path.length-8].id.replace("t", ""));
+          if(jQuery.browser.mobile || currentOne === parseInt(e.path[e.path.length-6].id.replace("t", ""))) currentOne++;
+          else currentOne = parseInt(e.path[e.path.length-6].id.replace("t", ""));
           animate(currentOne, true);
           direction = true;
          }
          else {
           animate(currentOne, false);
-          if(jQuery.browser.mobile || currentOne === parseInt(e.path[e.path.length-8].id.replace("t", ""))) currentOne--;
-          else currentOne = parseInt(e.path[e.path.length-8].id.replace("t", ""));
+          if(jQuery.browser.mobile || currentOne === parseInt(e.path[e.path.length-6].id.replace("t", ""))) currentOne--;
+          else currentOne = parseInt(e.path[e.path.length-6].id.replace("t", ""));
           animate(currentOne, true);
          }
    });

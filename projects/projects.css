@@ -10,21 +10,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-left: 10px;
     margin-bottom: 10px;
-    background: black;
-    filter: blur(.45px);
-    transition: filter 1.5s;
+    /*filter: blur(.65px);*/
+    transition: all .75s;
+    position: relative;
+    top: 0;
+    left: 0;
 }
 .project:hover{
-    filter: none;
+    -webkit-filter: drop-shadow(8px 8px 9px grey);
+    filter: drop-shadow(8px 8px 9px grey);
+    top: -3px;
+    left: -1px;
 }
 .project h1{
-    color: white;
-    background: rgba(15, 16, 16, .4);
-    filter: none;
+    color: #EEE;
+    background: rgba(0,0,0,.7);
+    border-bottom: 0px solid transparent;
 }
 /*.project button{*/
 /*    width: 50%;*/

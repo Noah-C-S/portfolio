@@ -1,0 +1,17 @@
+#game{
+    left: 10vw;
+    /*height: 320px;*/
+    /*width: 320px;*/
+    background-color: #0bb2e0;
+    position: relative;
+}
+#scoreBoard{
+    position: fixed;
+    /*background: rgba(0,0,0,.75);*/
+    /*color: white;*/
+    z-index: 2;
+}
+input{
+    width: 100%;
+    position: relative;
+}
