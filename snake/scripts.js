@@ -111,6 +111,7 @@ function moveSnake(){
     // console.log('____________________________________');
     printGame();
     if(samePos(snake[snake.length-1].position, food)){ queue += foodAmt; placeFood()}
+    console.log(queue);
     if (snake[snake.length-1].position[0] >= size || snake[snake.length-1].position[1] >= size || snake[snake.length-1].position[0] < 0 || snake[snake.length-1].position[1] < 0){
         endgame();
         return;
@@ -145,7 +146,8 @@ function endgame(){
     direction = 0; 
     snake = [new Segment([5,5])];
     food = [];
-    gotFood = false;
+    //gotFood = false;
+    queue = 0;
     started = false;
     paused = false;
     placeFood();
@@ -154,7 +156,7 @@ function endgame(){
 speedS.addEventListener('change', () => { speed = speedS.value; update()});
 sizeS.addEventListener('change', () => { size = sizeS.value; update()});
 resS.addEventListener('change', () => { res = resS.value; update()});
-foodAmtS.addEventListener('change', () => { foodAmt = foodAmtS.value; update()});
+foodAmtS.addEventListener('change', () => { foodAmt = parseInt(foodAmtS.value); update()});
 settingsS.addEventListener('click', ()=> {if (settingsHide) {slidersD.style.display ='block'; settingsHide = false;}
     else {slidersD.style.display = 'none'; settingsHide = true;}
 });
@@ -165,6 +167,7 @@ function update(){
     snake = [new Segment([5,5])];
     food = [];
     //gotFood = false;
+    queue = 0;
     started = false;
     paused = false;
     dimensions = size*res;
