@@ -42,6 +42,7 @@
     align-items: flex-end;
     left: 45vw;
     top: 48px;
+    min-height: 230px;
 }
 
 .mItem{
@@ -58,6 +59,7 @@
     height: 5vh;
     padding-bottom: 2.5vh;
     padding-top: 2.5vh;
+    min-height: 23px;
 }
 .hidden{
     display: none;

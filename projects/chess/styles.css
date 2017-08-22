@@ -10,7 +10,7 @@
     color: #FEFEFE;
     width:75%;
     height: 5vh;
-    top: 93vh;
+    bottom: 7vh;
     position: fixed;
     border-radius: 300px;
     text-align: center;
@@ -18,11 +18,13 @@
     z-index: 9;
     border: 2px solid rgba(0,0,0,.8);
     cursor: pointer;
+    min-height: 18px;
 }
 @media screen and (max-width: 477px){
     #mobileWarning{
-        height: 10vh;
-        top: 88vh;
+        height: 8vh;
+        min-height: 36px;
+        /*bottom: 12vh;*/
     }
 }
 .hidden{

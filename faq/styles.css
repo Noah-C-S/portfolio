@@ -13,11 +13,13 @@
 }
 .shrunkC{
     font-size: 0;
-    display: none;
+    /*display: none;*/
+    visibility: none;
 }
 .showC{
     font-size: 16px;
-    display: inline;
+    /*display: inline;*/
+    visibility: visible;
 }
 /*.black{*/
 /*    background: #212121;*/
