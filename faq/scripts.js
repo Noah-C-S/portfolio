@@ -1,9 +1,7 @@
-//This may have a bunch of commented out velocity animations. Try to ignore it, I switched to css3 animations a while ago because it's better for simple animations like this. 
 let currentOne = -1;
-const amount = 6;
-let magicNum = -1;
+const containerEl = document.getElementById("container");
+const amount = containerEl.childElementCount-1;
 let direction = false;
-// let animating = false; 
 $(document).ready(() => {
 /**
  * jQuery.browser.mobile (http://detectmobilebrowser.com/)
@@ -35,39 +33,27 @@ $("#container").mousewheel((turn, delta)=>{
       }
 
    });
-   const containerEl = document.getElementById("container");
-   containerEl.addEventListener("click", (e) => {
-         if(currentOne === -1) shrinkAll();
-         if(currentOne === amount) direction = false;
-         else if (currentOne === 0) direction = true;
-         let clicked;
-         try{
-            if(magicNum < 0)
-                for(let i = 0; i < e.path.length; i++){ //The magic number allows the computer to find which element is the one that contains the id that I'm looking for. At first, I thought it would be the same every time, but for some reason it's not so the browser just needs to calculate it each time. The only problems are that the first one always expands the first time, no matter which element you actually clicked, and I also can't used any ids that begin with t anywhere else on the page. 
-                    if (e.path[i].id.charAt(0) === 't' && e.path[i].id.length === 2) magicNum = e.path.length - i; 
-                }
-         clicked = parseInt(e.path[e.path.length-magicNum].id.replace("t", ""));
+   for(let i = 0; i <= amount; i++){
+       document.getElementById(`t${i}`)
+       .addEventListener('click', () => {handleClick(i);});
+   }
+   function handleClick(clicked){
+        if(currentOne === -1) shrinkAll();
+        if(currentOne === amount) direction = false;
+        else if (currentOne === 0) direction = true;
+        if(direction){
+          animate(currentOne, false);
+          if(isNaN(clicked) || currentOne === clicked) currentOne++;
+          else currentOne = clicked;
+          animate(currentOne, true);
          }
-         catch(ev){
-         clicked = NaN;
+         else {
+          animate(currentOne, false);
+          if(isNaN(clicked) || currentOne === clicked) currentOne--;
+          else currentOne = clicked;
+          animate(currentOne, true);
          }
-         finally{
-             //console.log(clicked);
-             if(direction || currentOne <= 0){
-              animate(currentOne, false);
-              if(isNaN(clicked) || currentOne === clicked) currentOne++;
-              else currentOne = clicked;
-              animate(currentOne, true);
-              direction = true;
-             }
-             else {
-              animate(currentOne, false);
-              if(isNaN(clicked) || currentOne === clicked) currentOne--;
-              else currentOne = clicked;
-              animate(currentOne, true);
-             }
-         }
-   });
+   }
    function preventDefault(e){
         e = e || window.event;
         if (e.preventDefault)
@@ -91,19 +77,6 @@ $("#container").mousewheel((turn, delta)=>{
    }
    containerEl.addEventListener('mouseover', disableScroll);
    containerEl.addEventListener('mouseout', enableScroll);
-   containerEl.addEventListener('mouseover', (e) =>{
-      if(magicNum < 0){
-        try{
-                for(let i = 0; i < e.path.length; i++){ //this fixed the bug that causes the first click to expand the top one regardless of where the user clicked, except on mobile.
-                    if (e.path[i].id.charAt(0) === 't' && e.path[i].id.length === 2) magicNum = e.path.length - i; 
-                    break;
-                } 
-        }
-        catch(ev){
-            magicNum = -1;
-        }
-      }
-   });
       function animate(which, opening){
         if(opening){ //coming in, or showing the element
         $(`#t${which}`).addClass("expanded");
