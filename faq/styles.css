@@ -15,21 +15,13 @@
 .shrunkC{
     font-size: 0;
     /*display: none;*/
-    visibility: none;
+    /*visibility: none;*/
 }
 .showC{
     font-size: 16px;
     /*display: inline;*/
-    visibility: visible;
+    /*visibility: visible;*/
 }
-/*.black{*/
-/*    background: #212121;*/
-/*    color: #f7f7f7;*/
-/*}*/
-/*.white{*/
-/*    background: #f7f7f7;*/
-/*    color: #212121;*/
-/*}*/
 #container{
     display: flex;
     flex-direction: column;
@@ -45,11 +37,5 @@
     text-align: center;
 }
 .content {
-    transition: font-size 500ms ease-in-out, visibility 0s 500ms;
+    transition: font-size 500ms ease-in-out,;
 }
-/*.content{*/
-/*    display: none;*/
-/*    overflow-x: auto;*/
-/*    overflow-y: auto;*/
-/*    font-size: 0;*/
-/*}*/
