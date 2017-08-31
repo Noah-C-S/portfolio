@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
-    <link href="../hamburgers/dist/hamburgers.css" rel="stylesheet">
-    <link rel = "stylesheet" type = "text/css" href = "../styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Audiowide|Carme|Source+Sans+Pro|Lobster" rel="stylesheet">
+    <link href="/hamburgers/dist/hamburgers.css" rel="stylesheet">
+    <link rel = "stylesheet" type = "text/css" href = "/styles.css">
+    <link rel = "stylesheet" type = "text/css" href = "styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Carme|Source+Sans+Pro|Abril+Fatface|Lobster" rel="stylesheet">
     <link rel="icon" type="image/ico" sizes="16x16" href="/favicon.ico">
-    <title>Contact Noah</title>
+    <title>Noah's Snake</title>
 </head>
 <body>
     <header>
@@ -19,13 +20,14 @@
         <a href = "/projects"><div class = "nItem">Projects</div></a>
         <a href = "/faq"><div class = "nItem">FAQ</div></a>
         <a href = "/contact"><div class = "nItem">Contact</div></a>
+        <!--Huge thanks to Jonathan Suh https://jonsuh.com/hamburgers/ For this amazing hamburger!-->
         <div id = "navExpand">
             <button id = "hamburger" class="hamburger hamburger--squeeze" style = "color: white;" type="button">
-                <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-                </span>
+            <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+            </span>
             </button>
-        </div>
+        </div> 
     </div>
      </header>
             <div id = "mobileNav" class = "hidden">
@@ -37,11 +39,17 @@
          </div>
      <div id = "page">
          <div id = "pageContent">
-             <h1>Contact</h1>
-             <p>If you'd like to get in touch, Shoot me an email at <span class = "email">noahcscs@gmail.com.</span><br><br>
-             For bugs, typos, or any any other forms of erroneous content on this site or any of the projects linked to on this site, send the email to <span class = "email">noahcscs+bugs@gmail.com</span>.
-             Please make sure to be specific as to which page it's on and what the issue is exactly. 
-             </p>
+             <h1>Snake</h1>
+            <div id = "cover" src = "/images/chess.png"></div>
+            <p>Snake an old arcade game concept, originating in the game "blockade" from 1976. It's been under many different names, but I prefer snake. Below is a version that allows you
+            to see the source code of my incarnation of snake and play it, but there is a <a class = 'link' href = '/snake'>full page version</a> as well. Just hit the play button above the code to start. </p>
+            
+            <iframe frameborder="0" width="100%" height="620px" src="https://repl.it/K2WL/2?lite=true"></iframe>
+            
+            <p>You can use the arrow keys to move, but that might move the page as well so I recommend using WASD. Clicking on the settings button reveals some settings, including how many
+            squares the grid should contain, how big each square should be (in pixels), the speed, which is measured in milliseconds between each movement, and the amount of segments each
+            food item gives you. See if you can beat my high score with default settings, which is 71. </p>
+            <div id = "mobileWarning" class = "hidden">This project may not work well on mobile devices.</div>
         </div>
     </div>
         <div id = "footer">
@@ -49,7 +57,8 @@
             <canvas id = "draw">The browser you are using doesn't seem to support canvas! I'd recommend the latest version of Chrome, but the latest versions of most modern browsers support it.</canvas>
         </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src = "../scripts.js"></script>
+    <script src = "/scripts.js"></script>
+    <script src = "scripts.js"></script>
     
 </body>
 </html>

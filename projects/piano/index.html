@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Created by and for Noah Preston Capucilli-Shatan. Feel free to snoop around my code!-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+    <link href="/hamburgers/dist/hamburgers.css" rel="stylesheet">
+    <link rel = "stylesheet" type = "text/css" href = "/styles.css">
+    <link rel = "stylesheet" type = "text/css" href = "styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Carme|Source+Sans+Pro|Abril+Fatface|Lobster" rel="stylesheet">
+    <link rel="icon" type="image/ico" sizes="16x16" href="/favicon.ico">
+    <title>Noah's Text Games</title>
+</head>
+<body>
+    <header>
+    <div id = "navigation">
+        <a href = "/"><div id = "noahcs">Noah<span style = "color: #7ffc5d">Cs</span></div></a>
+        <a href = "/"><div class = "nItem">Home</div></a>
+        <a href = "/about"><div class = "nItem">About</div></a>
+        <a href = "/projects"><div class = "nItem">Projects</div></a>
+        <a href = "/faq"><div class = "nItem">FAQ</div></a>
+        <a href = "/contact"><div class = "nItem">Contact</div></a>
+        <!--Huge thanks to Jonathan Suh https://jonsuh.com/hamburgers/ For this amazing hamburger!-->
+        <div id = "navExpand">
+            <button id = "hamburger" class="hamburger hamburger--squeeze" style = "color: white;" type="button">
+            <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+            </span>
+            </button>
+        </div> 
+    </div>
+     </header>
+            <div id = "mobileNav" class = "hidden">
+            <a href = "/"><div class = "mItem">Home</div></a>
+            <a href = "/about"><div class = "mItem">About</div></a>
+            <a href = "/projects"><div class = "mItem">Projects</div></a>
+            <a href = "/faq"><div class = "mItem">FAQ</div></a>
+            <a href = "/contact"><div class = "mItem">Contact</div></a>
+         </div>
+     <div id = "page">
+         <div id = "pageContent">
+             <h1>Text games</h1>
+            <div id = "cover"></div>
+            <p>Througout my Sophomore year in high school and early in my Junior year of high school, I liked to make programs that allow you to play simple games such as Hangman or rock 
+            paper scissors. These are simple, fun, and easy to make. </p>
+            <p>Below, you will see a hangman game that I wrote with Python in Sophomore year of high school. If you look closely at the code, you'll see that my comments are pretty silly. 
+            The game will also take off tries if you don't follow the instructions and input too many letters you've already used. You can run the program by clicking on the Play button 
+            above the code. When you successfully guess the word, the program prints out "Conglaturation!!!", which is a reference to an old Ghostbusters game which, when beaten, actually says
+            "conglaturation !!!  You have just beaten a great game. And prooved the justice of our culture. Now go and rest our heroes !". If you don't believe me, you can just google 
+            "conglaturation". </p>
+            <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/K2Na?lite=true"></iframe>    
+            <p>Another text game that I made using python was rock paper scissors. It's actually rock paper scissors lizard Spock, which is a similar concept, just more complicated. 
+            thankfully, my former self was smart enough to not use a long string of if statements and just assigned a numerical value to each move and made win conditions for one player.
+            These are on line 40 and the numerical values for each move are on lines 5 and 6 and corrospond to the index values of the moves in the list, so rock is 0 and paper is 2. [0,2]
+            on line 40 corrosponds to rock and paper, which means a win for player 2. It also uses getpass to hide your input when you're playing with someone else.</p>
+            
+            <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/K2Oy?lite=true"></iframe>
+                
+            <p>The most complicated text game I made with Python is my maze game. It allows you to move within a maze searching for the O. The game is able to randomly generate a map and 
+            allows you to move around in it using WASD, where W is up, A is left, S is down and D is right. Sadly, it could be unsolvable due to the random nature of the maps generated. 
+            You can used IJKL if you get stuck somewhere, or you can pressthe r button when you're in the same section as the O if it's unreachable to win automatically. For some reason, 
+            the Getch function I found online doesn't work on Repl.it, which is what I'm using to embed my projects. This means you need to hit the enter button after each input.
+            I could probably fix this, but I want each project to be the original version that I made in 10th grade, so I'll leave it as it is. </p>
+            
+            <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/K2QX/4?lite=true"></iframe>
+            
+            <p>I made one more text game that I want to show off on my website in the beginning of junior year. This time, I wrote it in java. It works like a tile puzzle. The goal is to make the
+            board read <br>
+            123<br>456<br>78<br>You play the game by looking at the piece that you want to move, hitting a wasd key based on which way you want that piece to go, and then hitting enter. 
+            While it is randomized, 
+            </p>
+            
+            <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/K2R8?lite=true"></iframe>
+            
+            <div id = "mobileWarning" class = "hidden">This project may not work well on mobile devices.</div>
+        </div>
+    </div>
+        <div id = "footer">
+            <p id = "footerContent">Made with love by Noah Preston Capucilli-Shatan!</p>
+            <canvas id = "draw">The browser you are using doesn't seem to support canvas! I'd recommend the latest version of Chrome, but the latest versions of most modern browsers support it.</canvas>
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src = "/scripts.js"></script>
+    <script src = "scripts.js"></script>
+    
+</body>
+</html>

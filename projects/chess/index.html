@@ -45,27 +45,40 @@
             white and black, use their 16 pieces to try to checkmate their opponent's king by capturing enemy
             pieces and planning ahead. In December of 2016, I spent about two weeks developing a
             version of chess played in the console by inputting the location of a piece to be moved and where to 
-            move it. The game showed where the piece could move once selected and showed the player a preview of
-            the planned move before it was made. The game conformed to standard chess rules, with the exception
-            of pawn promotion and checkmate. When checkmate occured, the game wouldn't automatically end. No
-            moves could be made when a player was in checkmate, but the game wouldn't acknowledge the game's end. 
-            The original version of my chess game is available below.</p>
+            move it. For example, if on turn one the white player wanted to move their King's pawn 2 spaces forward,
+            they would push 7 -> enter -> 5 -> enter -> 5 -> enter -> 5 -> enter -> y -> enter. Essentially, you would be moving 
+            the piece at row 7 column 4 to row 5 column 5. 
+            The game showed where the piece could move once selected and showed the player a preview of
+            the planned move before it was made. It also conformed to standard chess rules, with the exception
+            of pawn promotion, which I forgot about. However, when checkmate occured, the game wouldn't automatically end. No
+            moves could be made when a player was in checkmate, but the game would continue running until someone stopped it.
+            However, all these issues are fixed in my newest version. 
+            The original version of my chess game is available below. To run it, just push the arrow button above the code. </p>
             
-            <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/JBpk?lite=true"></iframe>    
-            <p>In June of 2017, I made some pretty major updates to the game. Not only is it more
-            organized by using inheritance and polymorphism (hence a java file for every piece type), but it
-            also contains more features, specifically more accurate previews showing you where you can move 
-            pieces (The original's previews included places that would put you in check, though you couldn't 
-            actually move there), checkmate detection and pawn promotion. This newer version is available below.</p>
+            <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/K6N7?lite=true"></iframe>   
             
-            <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/JBpk?lite=true"></iframe>
+            <p>In June of 2017, I revamped the game entirely. Now, it uses inheritance and polymorphism to get done what had to be done
+            by if statements in my old version. In the first rendition of my game, each piece had an integer value called pathType. 0 was rook, 1 was knight, 2 was bishop, etc. etc.
+            This was the only distinction between different kinds of pieces. This meant that any method that works differently on different piece type, for example, canMove, the function 
+            which checked whether or not a piece could move from one spot to another, needed a bunch of if statements. That's not good. 
+            The new version does away with the pathType variable and uses
+            inheritance and polymorphism instead. Now, Piece is an abstract class, which means you can only create instances of it's subclasses (different piece types, such as Rook), and canMove is an 
+            abstract method, which means it has no content in the Piece class and must be overriden by all its subclasses. This means that calling the canMove method on a rook would cause
+            a completely different function to run than if you called the same method on a pawn. This improves readability and performance. Not only is its design improved, but the newer
+            version has more features as well, including pawn promotion and an improved display of possible moves. When you select a piece, the game displays where you can move that piece.
+            In the original version of the game, this would include moves that would cause the player to go into check, even though the game wouldn't allow you to actually make the move. Another
+            difference is that in the older version, if you input something other than an integer when it asked for a row or column, the program would stop and it would return an error.
+            The newer version just ignores it. </p>
+            
+            <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/K6Od/1?lite=true"></iframe>
                 
-            <p>Chess is the first game that I completed in full in a programming language, and is one of my 
-            most complex projects. I found it to be very rewarding, and I liked the challenge of figuring
-            out how to make the computer understand things like "Diagonal" (The absolute values of the change in 
-            x and the change in y are equal). Surprisingly, the Pawn, one of the weakest pieces, turned out to be the 
-            most complex since its rules change depending on which team it's on, where it is on the board and where 
-            other pieces are on the board. </p>
+            <p>Chess is one of the most complicated projects I've completed up until now. Each piece works differently and the algorithm for each piece needed to be worked out one by one. 
+            If any piece is dead or if the space they're moving to is occupied by one of their own pieces, or if moving to that piece would put the player in check, the move is automatically
+            deemed illegal. The knight algorithm is the simplest one. All of the algorithms are available in the above code, within the canMove method of each class that extends Piece. There
+            is also a movePossible algorithm in each class that extends piece that is used to detect checkmate by checking if the piece can move to any of the spaces it could possibly move to.
+            For the pawn, this means it checks the 3 spaces "in front of" it. The board class contains methods for updating and printing the board based on where the pieces are. The Piece class
+            and it's subclasses handle everything related to the pieces such as movement.
+            </p>
             <div id = "mobileWarning" class = "hidden">This project may not work well on mobile devices.</div>
         </div>
     </div>
