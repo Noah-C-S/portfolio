@@ -5,16 +5,10 @@
       width: 100vw;
       height: 100vh;
       cursor: none;
-  }
-  footer{
-      bottom: 0;
-      background: #083b44;
-  }
-  h1{
-    height: 10vh;
+      background: #131516;
   }
   input{
-    width: 100vw;
+    width: 80vw;
   }
   
   

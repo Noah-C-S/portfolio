@@ -1,9 +1,9 @@
 #cover{
     height: 50vh;
     width: 100%;
-    background-image: url("/images/text.png");
+    background-image: url("/images/pemdas.png");
     background-repeat: repeat-x;
-    max-height: 640px;
+    max-height: 318px;
 }
 #mobileWarning{
     background-color: rgba(0,0,0,.7);

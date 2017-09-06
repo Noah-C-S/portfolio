@@ -14,6 +14,7 @@
     opacity: .97;
     color: #f9f7f7;
     font-size: 19px;
+    filter: drop-shadow(0px 2px 9px #212121);
 }
 .nItem{
     text-align: center;
@@ -171,6 +172,10 @@ h1{
      height: 100%;
      overflow: hidden;
  }
+ .link{
+    text-decoration: underline;
+    color: rgb(100, 100, 100);
+}
   /*Styles for Mobile or just really thin viewers. Also picks up 480p and other really "small" screens in terms of pixels. */
   @media screen and (max-width: 1000px){ 
     #navExpand{

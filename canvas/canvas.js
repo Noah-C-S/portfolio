@@ -1,128 +1,135 @@
-const canvas = document.querySelector('#draw');
-const ctx = canvas.getContext('2d');
-const lineS = document.getElementById("numlines");
-const heightS = document.getElementById("height");
-const widthS = document.getElementById("width");
-lineS.max = heightS.value * widthS.value;
 let NUMLINES = 6;
-let GRIDWIDTH =11;
-let GRIDHEIGHT = 7;
+let amount = 77;
 let nodes = [];
 let lastEvent;
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-ctx.lineJoin = 'round';
-ctx.lineCap = 'round';
-
-function draw(x,y) {
-    //ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //drawNodes();
-    ctx.lineWidth = 2;
-    const nearestNodes = getNearestNodes(x,y);
-    for(let a = 0; a < nearestNodes.length; a++){
-        ctx.strokeStyle = `rgba(9, 155, 181, ${125/nearestNodes[a][2]})`;
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(nearestNodes[a][0], nearestNodes[a][1]);
-        ctx.stroke();
-    }
-}
-function getNearestNodes(x,y){ //get the "nodes" nearest to your mouse.
-    let nodesWDistance = [];
-    for(let a = 0; a < nodes.length; a++) nodesWDistance.push([nodes[a][0], nodes[a][1], distanceToNode(nodes[a][0], nodes[a][1], x, y)]);
-    let nearestNodes = []; //[x,y,distance] so I don't need to calculate distance as much. 
-    for(let b = 0; b < NUMLINES && b < nodes.length; b++){
-        let lowestIndex = 0;
-        for(let c = 0; c < nodesWDistance.length; c++){
-            if(nodesWDistance[c][2] < nodesWDistance[lowestIndex][2])
-                lowestIndex = c;
-        }
-        nearestNodes.push(nodesWDistance.splice(lowestIndex,1)[0]);
-    }
-    return nearestNodes;
-}
-function distanceToNode(nodeX, nodeY, x, y){
-    if(x  === nodeX && y === nodeY) return Number.MAX_SAFE_INTEGER;
-    return Math.abs(x-nodeX) + Math.abs(y-nodeY);
-}
-function makeNodes(w, h){
-    nodes = [];
-    const width = canvas.width/w;
-    const height = canvas.height/h;
-    for(let x = .5; x < w; x++)
-        for(let y = .5; y < h; y++){
-            nodes.push([width*x, height*y, 2*Math.random()-1, 2*Math.random()-1]);
-        }
-    drawNodes();
-}
-function drawNodes(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for(let i = 0; i < nodes.length; i++){
-                ctx.strokeStyle = `rgba(9, 155,181, .9)`;
+window.addEventListener('DOMContentLoaded', function(){
+    const canvas = document.querySelector('#draw');
+    const ctx = canvas.getContext('2d');
+    const lineS = document.getElementById("numlines");
+    const amountS = document.getElementById("amount");
+    const amountD = document.getElementById("amountDisp");
+    const linesD = document.getElementById("linesDisp");
+    lineS.max = amountS.value;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    function node(){
+            this.x = Math.random()*canvas.width;
+            this.y = Math.random()*canvas.height;
+            this.xd = 2*Math.random()-1;
+            this.yd = 2*Math.random()-1;
+            this.move = function(){
+              if(this.x >= canvas.width) this.xd = Math.random()-1; 
+              if(this.x <= 0) this.xd = Math.random();
+              if(this.y >= canvas.height) this.yd = Math.random() ;
+              if(this.y <= 0) this.yd = Math.random();
+              this.x += this.xd;
+              this.y += this.yd;
+            };
+            this.draw = function(){
+                ctx.strokeStyle = "rgba(9, 155,181, .9)";
                 ctx.lineWidth =1;
                 ctx.beginPath();
-                ctx.moveTo(nodes[i][0], nodes[i][1]);
-                ctx.arc(nodes[i][0], nodes[i][1], 1, 0, 2* Math.PI, true);
-                //ctx.lineTo(nodes[i][0], nodes[i][1]);
+                ctx.moveTo(this.x, this.y);
+                ctx.arc(this.x, this.y, 1, 0, 2* Math.PI, true);
+                //ctx.lineTo(nodes[i].x, nodes[i].y);
                 ctx.stroke();
+            };
         }
-}
-function fix(){
-    let oldwidth = canvas.width;
-    let oldheight = canvas.height;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    for(let x = 0; x < nodes.length; x++)
-    {
-        [nodes[x][0], nodes[x][1]] = [nodes[x][0] * (canvas.width/oldwidth), nodes[x][1] * (canvas.height/oldheight)];
-        [lastEvent[0], lastEvent[1]] = [lastEvent[0] * (canvas.width/oldwidth), lastEvent[1] * (canvas.height/oldheight)];
+    function draw(x,y) {
+            //ctx.clearRect(0, 0, canvas.width, canvas.height);
+            //drawNodes();
+            ctx.lineWidth = 2;
+            const nearestNodes = getNearestNodes(x,y);
+            for(let a = 0; a < nearestNodes.length; a++){
+                ctx.strokeStyle = "rgba(240, 240, 240," +50/nearestNodes[a][1]+ ")";
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(nearestNodes[a][0].x, nearestNodes[a][0].y);
+                ctx.stroke();
+            }
+        }
+    function getNearestNodes(x,y){ //get the "nodes" nearest to your mouse.
+            let nodesWDistance = [];
+            for(let a = 0; a < nodes.length; a++) nodesWDistance.push([nodes[a], distanceToNode(nodes[a].x, nodes[a].y, x, y)]);
+            let nearestNodes = []; //[x,y,distance] so I don't need to calculate distance as much. 
+            for(let b = 0; b < NUMLINES && b < nodes.length; b++){
+                let lowestIndex = 0;
+                for(let c = 0; c < nodesWDistance.length; c++){
+                    if(nodesWDistance[c][1] < nodesWDistance[lowestIndex][1])
+                        lowestIndex = c;
+                }
+                nearestNodes.push(nodesWDistance.splice(lowestIndex,1)[0]);
+            }
+            return nearestNodes;
+        }
+    function distanceToNode(nodeX, nodeY, x, y){
+            if(x  === nodeX && y === nodeY) return Number.MAX_SAFE_INTEGER;
+            return Math.abs(x-nodeX) + Math.abs(y-nodeY);
+        }
+        function makeNodes(amount){
+            nodes = [];
+            for(let x = 0; x < amount; x++) nodes[x] = new node();
+            drawNodes();
+        }
+    function drawNodes(){
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for(let i = 0; i < nodes.length; i++){
+                        nodes[i].draw();
+                }
+        }
+    function fix(){
+            let oldwidth = canvas.width;
+            let oldheight = canvas.height;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for(let x = 0; x < nodes.length; x++)
+            {
+                nodes[x].x = nodes[x].x*(canvas.width/oldwidth);
+                nodes[x].y = nodes[x].y * (canvas.height/oldheight);
+                // [nodes[x][0], nodes[x][1]] = [nodes[x][0] * (canvas.width/oldwidth), nodes[x][1] * (canvas.height/oldheight)];
+                // [lastEvent[0], lastEvent[1]] = [lastEvent[0] * (canvas.width/oldwidth), lastEvent[1] * (canvas.height/oldheight)];
+            }
+            lastEvent[0] = lastEvent[0] * (canvas.width/oldwidth);
+            lastEvent[1] = lastEvent[1] * (canvas.height/oldheight);
+            //makeNodes(GRIDWIDTH, GRIDHEIGHT);
+        }
+    makeNodes(amount);
+    function moveNodes(){
+            for(let i = 0; i < nodes.length; i++)
+            {
+                nodes[i].move();
+            }
+            //drawNodes();
+            if (typeof lastEvent !== "undefined")
+                drawAll(lastEvent[0], lastEvent[1]);
+            else drawAll(nodes[0][0], nodes[0][1]);
+        }
+    function drawMouse(e){
+        lastEvent = [e.offsetX, e.offsetY];
+        drawAll(e.offsetX, e.offsetY);
     }
-    //makeNodes(GRIDWIDTH, GRIDHEIGHT);
-}
-function reset(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    makeNodes(GRIDWIDTH, GRIDHEIGHT);
-}
-makeNodes(GRIDWIDTH,GRIDHEIGHT);
-function moveNodes(){
-    for(let i = 0; i < nodes.length; i++)
-    {
-        if(nodes[i][0] >= canvas.width) nodes[i][2] = Math.random()-1; 
-        if(nodes[i][0] <= 0) nodes[i][2] = Math.random();
-        nodes[i][0]+= nodes[i][2];
-        if(nodes[i][1] >= canvas.height) nodes[i][3] = Math.random()-1;
-        if(nodes[i][1] <= 0) nodes[i][3] = Math.random();
-        nodes[i][1]+=nodes[i][3];
+    function drawAll(x,y){
+        drawNodes();
+        draw(x,y);
+        for(let i = 0; i< nodes.length; i++){
+            draw(nodes[i].x, nodes[i].y);
+        }
     }
-    //drawNodes();
-    if (typeof lastEvent !== "undefined")
-        drawAll(lastEvent[0], lastEvent[1]);
-    else drawAll(nodes[0][0], nodes[0][1]);
-}
-function drawMouse(e){
-    lastEvent = [e.offsetX, e.offsetY];
-    drawAll(e.offsetX, e.offsetY);
-}
-function drawAll(x,y){
-    drawNodes();
-    draw(x,y);
-    for(let i = 0; i< nodes.length; i++){
-        draw(nodes[i][0], nodes[i][1]);
+    function drawTouch(e){
+        const rect = e.target.getBoundingClientRect();
+        //console.log(e);
+        //console.log( [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top]);
+        lastEvent = [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top];
+        drawAll(e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top);
     }
-}
-function drawTouch(e){
-    const rect = e.target.getBoundingClientRect();
-    //console.log(e);
-    //console.log( [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top]);
-    lastEvent = [e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top];
-    drawAll(e.changedTouches[0].clientX, e.changedTouches[0].clientY-rect.top);
-}
-setInterval(moveNodes, 50);
-canvas.addEventListener('mousemove', drawMouse);
-canvas.addEventListener('touchmove', drawTouch);
-window.addEventListener('resize', fix);
-heightS.addEventListener('change', () => { GRIDHEIGHT = heightS.value; reset(); lineS.max = heightS.value * widthS.value;});
-widthS.addEventListener('change', () => { GRIDWIDTH = widthS.value; reset(); lineS.max = heightS.value * widthS.value;});
-lineS.addEventListener('change', () => { NUMLINES = lineS.value;});
-document.querySelector("footer").addEventListener('click', () => {if(NUMLINES < 3) NUMLINES++});
+    setInterval(moveNodes, 50);
+    canvas.addEventListener('mousemove', drawMouse);
+    canvas.addEventListener('touchmove', drawTouch);
+    window.addEventListener('resize', fix);
+    amountS.addEventListener('mousemove', function() {amountD.innerHTML = amountS.value});
+    lineS.addEventListener('mousemove', function() {linesD.innerHTML = lineS.value});
+    amountS.addEventListener('change', function(){amountD.innerHTML = amountS.value; amount = amountS.value; makeNodes(amount); lineS.max = amountS.value;});
+    lineS.addEventListener('change', function(){linesD.innerHTML = lineS.value; NUMLINES = lineS.value;});
+});

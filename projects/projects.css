@@ -18,8 +18,8 @@
     left: 0;
 }
 .project:hover{
-    -webkit-filter: drop-shadow(8px 8px 9px grey);
-    filter: drop-shadow(8px 8px 9px grey);
+    -webkit-filter: drop-shadow(8px 8px 8px grey);
+    filter: drop-shadow(8px 8px 8px grey);
     top: -3px;
     left: -1px;
 }

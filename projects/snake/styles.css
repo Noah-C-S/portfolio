@@ -27,10 +27,6 @@
         /*bottom: 12vh;*/
     }
 }
-.link{
-    text-decoration: underline;
-    color: rgb(100, 100, 100);
-}
 .hidden{
     display: none;
 }
