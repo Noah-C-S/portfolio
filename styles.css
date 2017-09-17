@@ -2,7 +2,6 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
-    /*background: #212121;*/
     background: #212121;
     /*25a9ce;*/
     position: fixed;
@@ -143,8 +142,8 @@ h1{
 #footer{
        border-top: 5px solid #FFF;
        cursor: pointer;
+       margin-top: 48px;
        background: #131516;
-       margin-top: 43px;
        margin-bottom: 0;
 }            
 #footerContent{
@@ -173,8 +172,13 @@ h1{
      overflow: hidden;
  }
  .link{
-    text-decoration: underline;
-    color: rgb(100, 100, 100);
+    /*text-decoration: underline;*/
+    /*color: rgb(100, 100, 100);*/
+    border-bottom: 1px solid rgb(150,150,150);
+    transition: color 250ms;
+}
+.link:hover{
+    color: rgb(100, 100,100);
 }
   /*Styles for Mobile or just really thin viewers. Also picks up 480p and other really "small" screens in terms of pixels. */
   @media screen and (max-width: 1000px){ 
@@ -196,4 +200,55 @@ h1{
     #footerContent{
         font-size: 1em;
     }
+}
+#home{
+    width: 100vw;
+    height: 45vh;
+    color: #212121;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /*flex-direction: column;*/
+}
+#text{
+    font-size: 3vw;
+    white-space: pre-wrap;
+}
+#likes{
+    font-size: 3vw;
+}
+#nextChar{
+    height: 3vw;
+    width: .1vw;
+    background: #212121;
+}
+.hiddenSpace{
+    visibility: hidden;
+}
+.highlighted{
+    background: #ACCEF7;
+}
+.hLink{
+    color: #EEE;
+    background: rgba(0,0,0,.7);
+    border-radius: 250px;
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vh;
+    transition: all .5s;
+}
+.hLink:hover{
+    background: rgba(0,0,0,.6);
+}
+#hLinkContainer{
+    width: 100vw;
+    height: 55vh;
+    color: #212121;
+     display: flex;
+     justify-content: center;
+      /*align-items: center;*/
 }

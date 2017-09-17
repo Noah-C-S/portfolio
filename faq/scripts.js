@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', function(){
     const amount = containerEl.childElementCount-1;
    for(let i = 0; i <= amount; i++){
        document.getElementById("t" + i)
-       .addEventListener('click', function() {console.log(); handleClick(i);});
+       .addEventListener('click', function() {handleClick(i);});
    }
    function handleClick(clicked){
         // console.log(clicked);
@@ -26,21 +26,24 @@ window.addEventListener('DOMContentLoaded', function(){
          }
    }
       function animate(which, opening){
+        if(which < 0 || which > amount) return;
+        let time = document.getElementById("t" + which);
+        let content = document.getElementById("c" + which);
         if(opening){ //coming in, or showing the element
-        $("#t"+which).addClass("expanded");
-        $("#t"+which).removeClass("shrunk");
-        $("#c"+which).removeClass("shrunkC");
-        $("#c"+which).addClass("showC");
+            time.classList.add("expanded");
+            time.classList.remove("shrunk");
+            content.classList.add("showC");
+            content.classList.remove("shrunkC");
         }
         else{
-            $("#t"+which).addClass("shrunk");
-            $("#t"+which).removeClass("expanded");
-            $("#c"+which).addClass("shrunkC");
-            $("#c"+which).removeClass("showC");
+            time.classList.remove("expanded");
+            time.classList.add("shrunk");
+            content.classList.remove("showC");
+            content.classList.add("shrunkC");
         }
       }
       function shrinkAll(){
          for(let i = 0; i <=amount; i++)
-            $("#t"+i).addClass("shrunk");
+         document.getElementById("t" + i).classList.add("shrunk");
       }
 });

@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function(){
             this.move = function(){
               if(this.x >= canvas.width) this.xd = Math.random()-1; 
               if(this.x <= 0) this.xd = Math.random();
-              if(this.y >= canvas.height) this.yd = Math.random() ;
+              if(this.y >= canvas.height) this.yd = Math.random()-1;
               if(this.y <= 0) this.yd = Math.random();
               this.x += this.xd;
               this.y += this.yd;
@@ -40,10 +40,11 @@ window.addEventListener('DOMContentLoaded', function(){
     function draw(x,y) {
             //ctx.clearRect(0, 0, canvas.width, canvas.height);
             //drawNodes();
-            ctx.lineWidth = 2;
+            // ctx.lineWidth = 2;
             const nearestNodes = getNearestNodes(x,y);
             for(let a = 0; a < nearestNodes.length; a++){
                 ctx.strokeStyle = "rgba(240, 240, 240," +50/nearestNodes[a][1]+ ")";
+                ctx.lineWidth = 1.25 + 1.5/nearestNodes[a][1];
                 ctx.beginPath();
                 ctx.moveTo(x, y);
                 ctx.lineTo(nearestNodes[a][0].x, nearestNodes[a][0].y);

@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     printGame();
     document.addEventListener('keydown', function(e){
         //console.log(e);
-        if(!paused && e.keyCode >= 37 && e.keyCode <=40 && (Math.abs(lastDirection - (e.keyCode-37)) !=2)){ //the second part is just to prevent people from bending into themselves and dying (e.g. pushing down while going up). It allows for control with arrow keys. 
+        if(!paused && e.keyCode >= 37 && e.keyCode <=40 && (snake.length === 1 || Math.abs(lastDirection - (e.keyCode-37)) !=2)){ //the second part is just to prevent people from bending into themselves and dying (e.g. pushing down while going up). It allows for control with arrow keys. 
             direction = e.keyCode-37;
             if(!started){id = setInterval(moveSnake, speed); started = true}
         }
@@ -43,19 +43,19 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (!paused){ //this is for WASD. It can't be as simple or as clean as the arrow keys since their keycodes aren't in order :C 
             switch(e.keyCode){
                 case 65:
-                    if(lastDirection != 2) direction =0;
+                    if(snake.length === 1 || lastDirection != 2) direction =0;
                     if(!started){id = setInterval(moveSnake, speed); started = true}
                     break;
                 case 68:
-                    if(lastDirection !=0) direction = 2;
+                    if(snake.length === 1 || lastDirection !=0) direction = 2;
                     if(!started){id = setInterval(moveSnake, speed); started = true}
                     break;
                 case 83:
-                    if(lastDirection !=1)direction = 3;
+                    if(snake.length === 1 ||lastDirection !=1)direction = 3;
                     if(!started){id = setInterval(moveSnake, speed); started = true}
                     break;
                 case 87:
-                    if(lastDirection !=3) direction = 1;
+                    if(snake.length === 1 ||lastDirection !=3) direction = 1;
                     if(!started){id = setInterval(moveSnake, speed); started = true}
                     break;
                 default:

@@ -1,0 +1,30 @@
+#cover{
+    height: 50vh;
+    width: 100%;
+    background-image: url("/images/pemdas.png");
+    background-repeat: repeat-x;
+    max-height: 318px;
+}
+#mobileWarning{
+    background-color: rgba(0,0,0,.7);
+    color: #FEFEFE;
+    width:75%;
+    height: 5vh;
+    top: 93vh;
+    position: fixed;
+    border-radius: 300px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 9;
+    border: 2px solid rgba(0,0,0,.8);
+    cursor: pointer;
+}
+@media screen and (max-width: 477px){
+    #mobileWarning{
+        height: 10vh;
+        top: 88vh;
+    }
+}
+.hidden{
+    display: none;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Created by and for Noah Preston Capucilli-Shatan. Feel free to snoop around my code!-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+    <link href="/hamburgers/dist/hamburgers.css" rel="stylesheet">
+    <link rel = "stylesheet" type = "text/css" href = "/styles.css">
+    <link rel = "stylesheet" type = "text/css" href = "styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Carme|Source+Sans+Pro|Abril+Fatface|Lobster" rel="stylesheet">
+    <link rel="icon" type="image/ico" sizes="16x16" href="/favicon.ico">
+    <title>Noah's Portfolio Website</title>
+</head>
+<body>
+    <header>
+    <div id = "navigation">
+        <a href = "/"><div id = "noahcs">Noah<span style = "color: #7ffc5d">Cs</span></div></a>
+        <a href = "/"><div class = "nItem">Home</div></a>
+        <a href = "/about"><div class = "nItem">About</div></a>
+        <a href = "/projects"><div class = "nItem">Projects</div></a>
+        <!--<a href = "/faq"><div class = "nItem">FAQ</div></a>-->
+        <a href = "/contact"><div class = "nItem">Contact</div></a>
+        <!--Huge thanks to Jonathan Suh https://jonsuh.com/hamburgers/ For this amazing hamburger!-->
+        <div id = "navExpand">
+            <button id = "hamburger" class="hamburger hamburger--squeeze" style = "color: white;" type="button">
+            <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+            </span>
+            </button>
+        </div> 
+    </div>
+     </header>
+            <div id = "mobileNav" class = "hidden">
+            <a href = "/"><div class = "mItem">Home</div></a>
+            <a href = "/about"><div class = "mItem">About</div></a>
+            <a href = "/projects"><div class = "mItem">Projects</div></a>
+            <!--<a href = "/faq"><div class = "mItem">FAQ</div></a>-->
+            <a href = "/contact"><div class = "mItem">Contact</div></a>
+         </div>
+     <div id = "page">
+         <div id = "pageContent">
+             <h1>Portfolio website</h1>
+            <p>In the months preceding the summer vacation between Junior and Senior year, I noticed art students working with their art teachers to make portfolios for universities to look
+            at. Art students do this to help make themselves stand out. I thought that since what I did was a form of art as well, I should make a portfolio too. However, I couldn't 
+            just send in text files of my code or include chess in my Common app, I had to make a website to host the projects that I want to send to universities. </p>
+            
+            <p>I began work the moment after I finished up my AP exams for the 2016-2017 school year. I wasn't exactly sure what I wanted from a portfolio website at the time, so I 
+            just began work on something I thought would look cool using HTML canvas. I figured that I'd be able to implement it into my website
+            somehow, and I eventually stuck it in the footer, at the bottom of the page. It's hidden by default, but clicking on the footer reveals it while subsequent clicks add lines.
+             It's made up of many little dots that I like to call "nodes"
+             that move around and connect to each other and the mouse with lines. The lines get fainter the further away the two nodes are. A node is just an object with 4 values:
+              an x coordinate, a y coordinate an x direction and a y direction. The x and y directions are random values between -1 and 1 that determine how far the node should move
+             in that particular direction every 50 milliseconds. This value is changed every time it touches the edge of the canvas to make sure that the node doesn't keep going in one 
+             direction forever. There's a <a class = "link" href = "/canvas">full page version</a> that allows you to change the values of some variables by using sliders at the bottom. I think
+             this project came out pretty well, and it adds a nice touch to my website. It also works well on cell phones by detecting touch, but dragging your finger around the screen
+             will cause it to scroll around, which can be a little annoying. The source code for the project is available below, just click the play button above the code to run it.</p>
+             <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/KkxN/2?lite=true"></iframe>
+             <p>After finishing up the canvas project, I started working on a project that would allow people to expand or collapse certain sections of a specific page with a clean animation.
+             At first, I used velocity.js animations but I eventually switched to using css3 animations, which are faster. Orignally, I was going to use this on some kind of FAQ page, but 
+             I couldn't think of a good reason to have an FAQ page so it didn't make the final cut. The <a href = "/faq" class = "link">remnants of the FAQ page</a> can act as a full page example of this. It could prove useful later, however, so I'm glad I made it, even if I didn't end up using it. </p>
+             <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/Klnr/0?lite=true"></iframe>
+             <p>Once I was done with that, I began to design my portfolio itself. To do this, I drew up a wireframe and made an HTML document that would act as the template for all the other
+             ones. Originally, the color palette was blue and bluish green, but due to the fact that these colors made the website look underwater, I changed the colors to black and white.
+             I also picked out all the fonts and text sizes as this time. Once I was satisfied with the design, I made the actual pages and began to fill them in with content. Around 
+             September 2017, I finished up this website. My hope that this website gives visitors an idea of who I am and what I can do in terms of software engineering.</p>
+            
+            <div id = "mobileWarning" class = "hidden">This project may not work well on mobile devices. Tap to dismiss.</div>
+        </div>
+    </div>
+        <div id = "footer">
+            <p id = "footerContent">Made with love by Noah Preston Capucilli-Shatan!</p>
+            <canvas id = "draw">The browser you are using doesn't seem to support canvas! I'd recommend the latest version of Chrome, but the latest versions of most modern browsers support it.</canvas>
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src = "/scripts.js"></script>
+    <script src = "scripts.js"></script>
+    
+</body>
+</html>

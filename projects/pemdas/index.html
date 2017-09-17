@@ -18,7 +18,7 @@
         <a href = "/"><div class = "nItem">Home</div></a>
         <a href = "/about"><div class = "nItem">About</div></a>
         <a href = "/projects"><div class = "nItem">Projects</div></a>
-        <a href = "/faq"><div class = "nItem">FAQ</div></a>
+        <!--<a href = "/faq"><div class = "nItem">FAQ</div></a>-->
         <a href = "/contact"><div class = "nItem">Contact</div></a>
         <!--Huge thanks to Jonathan Suh https://jonsuh.com/hamburgers/ For this amazing hamburger!-->
         <div id = "navExpand">
@@ -34,18 +34,26 @@
             <a href = "/"><div class = "mItem">Home</div></a>
             <a href = "/about"><div class = "mItem">About</div></a>
             <a href = "/projects"><div class = "mItem">Projects</div></a>
-            <a href = "/faq"><div class = "mItem">FAQ</div></a>
+            <!--<a href = "/faq"><div class = "mItem">FAQ</div></a>-->
             <a href = "/contact"><div class = "mItem">Contact</div></a>
          </div>
      <div id = "page">
          <div id = "pageContent">
              <h1>Recursive Pemdas Calculator</h1>
             <div id = "cover"></div>
-            <p>The final text game that I want to show off on this page isn't really a game, but a calculator I made in early September 2017. This powerful calculator is capable of parsing out equations
-            from really messy text, such that dfghjk6ghjk+ghjk5gfds returns 11.0 (6+5 is nested in there) and it's capable of PEMDAS, so 2+3*2 = 8.0 while (2+3)*2 = 10.0. 
-            To accomplish this, the calculator uses regular expressions for pattern matching and recursion for PEMDAS. It's a great example of my proficency with recursion. </p>
+            <p>In the Summer of 2017, I made a calculator capable of solving expressions using PEMDAS. It does this by recursively calling itself with different parameters. Not only
+            that, but the regular expressions used to parse the inputs are very sensitive, and can parse 2+3 out of jkljk2dskljf+poweipi3fdjsk. It also works with decimals. </p>
+            <p>Making the program work with parenthesis was the most challenging part of this project. Even now, if you put your parenthesis in wrong, it may return an unexpected result. For example
+            "(2+)3)*2" returns 6.0, while "(2+abcd3)*2" returns 10.0. If your opening and closing parenthesis aren't matched up properly, the program will warn you that you may recieve an unexpected result.
+            The reason for this is that the program ignores parenthesis that have other parenthesis in them, so it does nested parenthesis first. Once it completes what's inside some parenthesis,
+            it removes the parenthesis and the expressions within them and replaces them with the result, allowing the program to complete parenthesis those parenthesis were in. So, if it were
+            given "(2*(3+4))", it would ignore the outside parenthesis since they have parenthesis within them, and solve for (3+4), which is 7.0, then it would solve for (2*7.0) and return 14.0.
+            Without this system, either expressions like (2+2)*(3+4) would return an unexpected result because the program would match "2+2)*(3+4" as the inside of the parenthesis, or expressions
+            like (2+(2*3)-1) would return an unexpected result since the program would match "2+(2*3" as the inside of the parenthesis. By ignoring parenthesis that contain parenthesis within
+            them, I was able to fix both problems.</p>
+            <p>The calculator is available below. Just hit the play button to run the program.</p>
             
-            <iframe frameborder="0" width="100%" height="1000px" src="https://repl.it/KcjY/18?lite=true"></iframe>
+            <iframe frameborder="0" width="100%" height="1000px" src="https://repl.it/KcjY/26?lite=true"></iframe>
             
             <div id = "mobileWarning" class = "hidden">This project may not work well on mobile devices. Tap to dismiss.</div>
         </div>

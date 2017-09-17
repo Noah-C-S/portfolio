@@ -7,11 +7,13 @@ let NUMLINES = -1;
 let amount =77;
 let nodes = [];
 let lastEvent = [0,0];
+let footerEl;
 window.addEventListener('DOMContentLoaded', function(){
     const canvas = document.getElementById('draw');
+     footerEl = document.getElementById("footer");
     const ctx = canvas.getContext('2d');
-    canvas.width = $("#footer").width();
-    canvas.height = $("#footer").height();
+    canvas.width = footerEl.clientWidth;
+    canvas.height = footerEl.clientHeight;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     function node(){
@@ -22,7 +24,7 @@ window.addEventListener('DOMContentLoaded', function(){
         this.move = function(){
           if(this.x >= canvas.width) this.xd = Math.random()-1; 
           if(this.x <= 0) this.xd = Math.random();
-          if(this.y >= canvas.height) this.yd = Math.random() ;
+          if(this.y >= canvas.height) this.yd = Math.random() -1;
           if(this.y <= 0) this.yd = Math.random();
           this.x += this.xd;
           this.y += this.yd;
@@ -40,10 +42,11 @@ window.addEventListener('DOMContentLoaded', function(){
     function draw(x,y) {
         //ctx.clearRect(0, 0, canvas.width, canvas.height);
         //drawNodes();
-        ctx.lineWidth = 2;
+        // ctx.lineWidth = 2;
         const nearestNodes = getNearestNodes(x,y);
         for(let a = 0; a < nearestNodes.length; a++){
             ctx.strokeStyle = "rgba(240, 240, 240," +50/nearestNodes[a][1]+ ")";
+            ctx.lineWidth = 1.25 + 1.5/nearestNodes[a][1];
             ctx.beginPath();
             ctx.moveTo(x, y);
             ctx.lineTo(nearestNodes[a][0].x, nearestNodes[a][0].y);
@@ -82,8 +85,8 @@ window.addEventListener('DOMContentLoaded', function(){
     function fix(){
         let oldwidth = canvas.width;
         let oldheight = canvas.height;
-        canvas.width = $("#footer").width();
-        canvas.height = $("#footer").height();
+        canvas.width = footerEl.clientWidth;
+        canvas.height = footerEl.clientHeight;
         for(let x = 0; x < nodes.length; x++)
         {
             nodes[x].x = nodes[x].x*(canvas.width/oldwidth);
@@ -133,14 +136,9 @@ window.addEventListener('DOMContentLoaded', function(){
     }
     canvas.addEventListener('mousemove', drawMouse);
     canvas.addEventListener('touchmove', drawTouch);
-    // canvas.addEventListener('touchstart', ()=> {$('body').addClass('noscroll');});
-    // canvas.addEventListener('touchend', () => {$('body').removeClass('noscroll');});
     window.addEventListener('resize', fix);
-    // heightS.addEventListener('change', () => { GRIDHEIGHT = heightS.value; reset(); lineS.max = heightS.value * widthS.value;});
-    // widthS.addEventListener('change', () => { GRIDWIDTH = widthS.value; reset(); lineS.max = heightS.value * widthS.value;});
-    // lineS.addEventListener('change', () => { NUMLINES = lineS.value;});
-    const footerEl = document.getElementById("footer");
-    footerEl.addEventListener('click', function(){if(NUMLINES < 8) NUMLINES++; if(!hidden) {$("#footerContent").hide(); $("#draw").show(); fix(); hidden = true; setInterval(moveNodes, 50);} if(NUMLINES> 0) $("#draw").css("cursor", "none");});
+    const fContent = document.getElementById("footerContent");
+    footerEl.addEventListener('click', function(){if(NUMLINES < 8) NUMLINES++; if(!hidden){ fContent.style.display= "none"; canvas.style.display = "inline"; fix(); hidden = true; setInterval(moveNodes, 50);} if(NUMLINES> 0) canvas.style.cursor = "none";});
     const navExpandEl = document.getElementById("navExpand"); //El is added to the end of these names to fix a bizzarre bug in Safari where you can't have a const variable with name of the ID that the element it contains has. 
     const mobileNavEl = document.getElementById("mobileNav");
     const hamburgerEl = document.getElementById("hamburger");

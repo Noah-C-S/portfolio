@@ -27,6 +27,9 @@
     color: #EEE;
     background: rgba(0,0,0,.7);
     border-bottom: 0px solid transparent;
+    border-radius: 250px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 /*.project button{*/
 /*    width: 50%;*/
