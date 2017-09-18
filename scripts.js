@@ -150,7 +150,9 @@ window.addEventListener('DOMContentLoaded', function(){
         // if(navShown) {mobileNavEl.classList.add("hidden"); mobileNavEl.classList.remove("shown"); hamburgerEl.classList.remove("is-active"); navShown = false;}
         // else{mobileNavEl.classList.remove("hidden"); mobileNavEl.classList.add("shown"); hamburgerEl.classList.add("is-active"); navShown = true;} 
     });
-    const pageEl = document.getElementById("page");
+    let pageEl;
+    if(document.getElementById("page") != null) pageEl = document.getElementById("page");
+    else pageEl = document.getElementById("home");
     pageEl.addEventListener("click", function(){
        if(!navShown) return;
        mobileNavEl.classList.add("hidden");

@@ -130,6 +130,7 @@ a{
     margin-left: 5vw;
     font-family:'Carme', sans-serif;
     color: #252525;
+    font-size: 23px;
 }
 h1{
     /*text-decoration: underline;*/
@@ -258,7 +259,3 @@ h1{
     background: #212121;
     margin: 20px 0;
 }
-/*p{*/
-/*    max-width: 34em !important;*/
-/*    margin: 0 auto;*/
-/*}*/

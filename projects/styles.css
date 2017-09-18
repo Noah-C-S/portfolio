@@ -1,7 +1,6 @@
 #cover{
     height: 50vh;
     width: 100%;
-    background-image: url("/images/snake.png");
     background-repeat: repeat-x;
     max-height: 640px;
 }
@@ -10,7 +9,8 @@
     color: #FEFEFE;
     width:75%;
     height: 5vh;
-    bottom: 7vh;
+    min-height: 45px;
+    top: 93vh;
     position: fixed;
     border-radius: 300px;
     text-align: center;
@@ -18,15 +18,14 @@
     z-index: 9;
     border: 2px solid rgba(0,0,0,.8);
     cursor: pointer;
-    min-height: 18px;
+    font-size: 16px;
 }
-@media screen and (max-width: 477px){
-    #mobileWarning{
-        height: 8vh;
-        min-height: 36px;
-        /*bottom: 12vh;*/
-    }
-}
+/*@media screen and (max-width: 477px){*/
+/*    #mobileWarning{*/
+/*        height: 10vh;*/
+/*        top: 88vh;*/
+/*    }*/
+/*}*/
 .hidden{
     display: none;
 }
