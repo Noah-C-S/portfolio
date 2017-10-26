@@ -43,13 +43,13 @@
             <div id = "cover" style = 'background-image: url("/images/pemdas.png");'></div>
             <p>In the Summer of 2017, I made a calculator capable of solving expressions using PEMDAS. It does this by recursively calling itself with different parameters. Not only
             that, but the regular expressions used to parse the inputs are very sensitive, and can parse 2+3 out of jkljk2dskljf+poweipi3fdjsk. It also works with decimals. </p>
-            <p>Making the program work with parenthesis was the most challenging part of this project. Even now, if you put your parenthesis in wrong, it may return an unexpected result. For example
-            "(2+)3)*2" returns 6.0, while "(2+abcd3)*2" returns 10.0. If your opening and closing parenthesis aren't matched up properly, the program will warn you that you may recieve an unexpected result.
-            The reason for this is that the program ignores parenthesis that have other parenthesis in them, so it does nested parenthesis first. Once it completes what's inside some parenthesis,
-            it removes the parenthesis and the expressions within them and replaces them with the result, allowing the program to complete parenthesis those parenthesis were in. So, if it were
-            given "(2*(3+4))", it would ignore the outside parenthesis since they have parenthesis within them, and solve for (3+4), which is 7.0, then it would solve for (2*7.0) and return 14.0.
-            Without this system, either expressions like (2+2)*(3+4) would return an unexpected result because the program would match "2+2)*(3+4" as the inside of the parenthesis, or expressions
-            like (2+(2*3)-1) would return an unexpected result since the program would match "2+(2*3" as the inside of the parenthesis. By ignoring parenthesis that contain parenthesis within
+            <p>Making the program work with parentheses was the most challenging part of this project. Even now, if you put your parentheses in wrong, it may return an unexpected result. For example
+            "(2+)3)*2" returns 6.0, while "(2+abcd3)*2" returns 10.0. If your opening and closing parentheses aren't matched up properly, the program will warn you that you may recieve an unexpected result.
+            The reason for this is that the program ignores parentheses that have other parentheses in them, so it does nested parentheses first. Once it completes what's inside some parentheses,
+            it removes the parentheses and the expressions within them and replaces them with the result, allowing the program to complete parentheses those parentheses were in. So, if it were
+            given "(2*(3+4))", it would ignore the outside parentheses since they have parentheses within them, and solve for (3+4), which is 7.0, then it would solve for (2*7.0) and return 14.0.
+            Without this system, either expressions like (2+2)*(3+4) would return an unexpected result because the program would match "2+2)*(3+4" as the inside of the parentheses, or expressions
+            like (2+(2*3)-1) would return an unexpected result since the program would match "2+(2*3" as the inside of the parentheses. By ignoring parentheses that contain parentheses within
             them, I was able to fix both problems.</p>
             <p>The calculator is available below. Just hit the play button to run the program.</p>
             
