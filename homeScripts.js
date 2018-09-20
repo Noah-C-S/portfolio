@@ -1,4 +1,4 @@
-let text = "Hi, I'm Noah. I'm a high school student who likes ";
+let text = "Hi, I'm Noah. I'm a college student who likes ";
 const likesConst = ["coding.",  "hiking.", "swimming.", "history.", "turtles.", "technology.", "engineering."];
 let likes = [];
 resetLikes();
