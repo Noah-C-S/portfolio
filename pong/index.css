@@ -1,0 +1,11 @@
+#game{
+	background-color: black;
+	position: relative;
+	top: 5vh;
+	margin-bottom: 5vh;
+}
+#scoreBoard{
+    position: fixed;
+    z-index: 2;
+    color: gray;
+}
