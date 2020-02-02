@@ -1,5 +1,5 @@
-let text = "Hi, I'm Noah. I'm a college student who likes ";
-const likesConst = ["coding.",  "hiking.", "swimming.", "history.", "turtles.", "technology.", "engineering."];
+let text = "Hi, I'm Noah. I'm a college student with experience in ";
+const likesConst = ["Java.",  "C.", "C++.", "Oracle SQL.", "JavaScript.", "HTML/CSS.", "relational databases.", "algorithms.", "data structures.", "web development.", "software engineering."];
 let likes = [];
 resetLikes();
 let index = 0;
