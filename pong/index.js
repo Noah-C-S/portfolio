@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		ballY = (size - ballSize)/2;
 		ballTimeOut = true;
 		clearInterval(id);
+		paused = false;
 		id = window.setInterval(frame, 16);
 		window.setTimeout(function(){ballTimeOut = false}, 2500);
 	}

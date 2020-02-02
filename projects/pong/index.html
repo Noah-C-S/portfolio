@@ -9,7 +9,7 @@
     <link rel = "stylesheet" type = "text/css" href = "/projects/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Carme|Source+Sans+Pro|Abril+Fatface|Lobster" rel="stylesheet">
     <link rel="icon" type="image/ico" sizes="16x16" href="/favicon.ico">
-    <title>Noah's Snake</title>
+    <title>Noah's Pong</title>
 </head>
 <body>
     <header>
@@ -40,15 +40,12 @@
      <div id = "page">
          <div id = "pageContent">
              <h1>Snake</h1>
-            <div id = "cover" style = 'background-image: url("/images/snake.png");'></div>
-            <p>Snake an old arcade game concept, originating in the game "Blockade" from 1976. It's been released under many different names, but I prefer Snake. Below is a version that allows you
-            to see the source code of my incarnation of Snake and play it, but there is a <a class = 'link' href = '/snake'>full page version</a> as well. Just hit the play button above the code to start. </p>
+            <div id = "cover" style = 'background-image: url("/images/pong.png");'></div>
+            <p>Pong is one of the oldest video games, but I made this version using JavaScript during my senior year of high school. It's implemented similarly to my Snake game; the updates some values, such as the position of the paddles, every frame based on user input, and then updates a canvas every frame based on those values. My code is below, but I have a <a class = 'link' href = '/pong'>full page version</a> as well. Just hit the play button above the code to start. </p>
             
-            <iframe frameborder="0" width="100%" height="620px" src="https://repl.it/@noahcapucilli_shata/Javscript-snake?lite=true"></iframe>
+            <iframe height="400px" width="100%" src="https://repl.it/@noahcapucilli_shata/Pong?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
             
-            <p>You can use the arrow keys to move, but that might move the page as well so I recommend using WASD. Clicking on the settings button reveals some settings, including how many
-            squares the grid should contain, how big each square should be (in pixels), the speed, which is measured in milliseconds between each movement, and the amount of segments each
-            food item gives you. See if you can beat my high score of 92 with default settings! </p>
+            <p>The default controls are W and S for player one and I and K for player two, but you can change them, along with some other settings, by clicking on the "settings" button. You can also pause the game with the spacebar.</p>
             <div id = "mobileWarning" class = "hidden">This project may not work well on mobile devices. Tap to dismiss.</div>
         </div>
     </div>
