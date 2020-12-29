@@ -24,6 +24,7 @@ window.addEventListener('DOMContentLoaded', function(){
             index = 0;
             window.clearInterval(wId);
             lId = window.setInterval(addLike, 50);
+            textEl.appendChild(likesEl);
         }
     }
     function addLike(){
@@ -50,9 +51,9 @@ window.addEventListener('DOMContentLoaded', function(){
     function blink(){
         nextCharEl.classList.toggle("hiddenSpace");
     }
-    
+
     // function revealNav(){
     //     links.css;
     // }
-    
+
 });
