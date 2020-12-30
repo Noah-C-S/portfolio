@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Created by and for Noah Preston Capucilli-Shatan. Feel free to snoop around my code!-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+    <link href="../../hamburger/hamburgers.css" rel="stylesheet">
+    <link rel = "stylesheet" type = "text/css" href = "../../styles.css">
+    <link rel = "stylesheet" type = "text/css" href = "../styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Carme|Source+Sans+Pro|Abril+Fatface|Lobster" rel="stylesheet">
+    <link rel="icon" type="image/ico" sizes="16x16" href="/favicon.ico">
+    <title>SlippiMusic</title>
+</head>
+<body>
+    <header>
+    <div id = "navigation">
+        <a href = "/"><div id = "noahcs">Noah<span style = "color: #7ffc5d">Cs</span></div></a>
+        <a href = "/"><div class = "nItem">Home</div></a>
+        <a href = "/about"><div class = "nItem">About</div></a>
+        <a href = "/projects"><div class = "nItem">Projects</div></a>
+        <!--<a href = "/faq"><div class = "nItem">FAQ</div></a>-->
+        <a href = "/contact"><div class = "nItem">Contact</div></a>
+        <!--Huge thanks to Jonathan Suh https://jonsuh.com/hamburgers/ For this amazing hamburger!-->
+        <div id = "navExpand">
+            <button id = "hamburger" class="hamburger hamburger--squeeze" style = "color: white;" type="button">
+            <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+            </span>
+            </button>
+        </div>
+    </div>
+     </header>
+            <div id = "mobileNav" class = "hidden">
+            <a href = "/"><div class = "mItem">Home</div></a>
+            <a href = "/about"><div class = "mItem">About</div></a>
+            <a href = "/projects"><div class = "mItem">Projects</div></a>
+            <!--<a href = "/faq"><div class = "mItem">FAQ</div></a>-->
+            <a href = "/contact"><div class = "mItem">Contact</div></a>
+         </div>
+     <div id = "page">
+         <div id = "pageContent">
+             <h1>SlippiMusic</h1>
+             <p>It's been a while since I've put something new on this website. That might give the impression that I haven't kept myelf busy over the past three years or so, but it's more that the
+             nature of my work has changed. All of the prior work I have here was completely self-motivated, made using abilities that were mostly self-taught, and were not part of any organized course
+             or curriculum. Since I entered college, however, I've been mostly satisifed with the assignments that I do for class, which have included a Kiosk application for Brigham and Women's hospital
+             in Boston and a robot that delivers pizza. I don't publish most of the source code for these because professors often reuse projects or parts of projects for future terms and I don't want to
+             just publish the answers on the internet. However, I've recently been working on a personal project called <a class = 'link' href = "https://github.com/Noah-C-S/SlippiMusic">SlippiMusic</a> which is more fitting for this website than my course projects, since it's completely Free software and is meant to be useful to other people.</p>
+            <h2>Introduction</h2>
+            <p>I've been playing Super Smash Brothers Melee competitively for a little over three years now, and while in-person events are certainly preferable to online ones, playing the game online is
+            still preferable to not playing it at all. Recently, some amazing developers have created a modification of Dolphin which allows for Melee to be played using rollback netcode. Most Netcode works by running a separate instance of the game on both players' computers and having each host send their inputs to the other. There is a fixed delay for all local and remote inputs, and if a remote input takes more time to arrive than the delay, the game freezes until it recieves the next input. However, this "delay-based" netcode is generally considered inferiror to "rollback netcode", where the game continues running while making guesses for the opponent's missing inputs. If the receieved inputs are different from the guess, then it "rolls back" the game and recalculates the characters' positions based on the received inputs. <a class = "link" href = "https://slippi.gg">Project Slippi</a> is an impressive implementation of Rollack Netcode for melee, but since we don't have melee's source code and use an emulator to run it, is rather imperfect; anything that is loaded from the disc and into memory at the start of the game works fine, but things such as stage music which are loaded from the disc during the game don't work. A lot of Melee's music is incredible and was recorded by a live orchestra. For many people, it's an important part of playing the game, so I created SlippiMusic to help improve the emulation of Melee while playing it online. It runs in the background and watches you play to determine which track it should play, and plays the correct one.</p>
+        </div>
+    </div>
+        <div id = "footer">
+            <p id = "footerContent">Made with love by Noah Preston Capucilli-Shatan!</p>
+            <canvas id = "draw">The browser you are using doesn't seem to support canvas! I'd recommend the latest version of Chrome, but the latest versions of most modern browsers support it.</canvas>
+        </div>
+    <script src = "../../scripts.js"></script>
+
+</body>
+</html>
